@@ -1,0 +1,40 @@
+
+
+{
+  "menu": [
+    {
+      "url": "/",
+      "name": "Dashboard",
+      "i18n": "Dashboard",
+      "class": "collapsible-header waves-effect waves-cyan",
+      "slug": "dashboard",
+      "icon": "settings_input_svideo",
+      "tagcustom": "badge pill orange float-right mr-10",
+      "submenu": [
+       
+      ]
+    },
+    {
+      "navheader": "",
+      "icon": "more_horiz"
+    },
+    {
+      "url": "patient-records",
+      "name": "Patient's Records",
+      "i18n": "Patient's Records",
+      "class": "waves-effect waves-cyan",
+      "icon": "airline_seat_flat_angled",
+      "slug": "app-email",
+      "tagcustom": "new badge pill pink accent-2 float-right mr-2"
+    },
+    {
+      "url": "sales-report",
+      "name": "Daily Patient Log",
+      "i18n": "Daily Patient Log",
+      "class": "waves-effect waves-cyan",
+      "icon": "receipt",
+      "slug": "sales-report",
+      "tagcustom": "new badge pill pink accent-2 float-right mr-2"
+    }
+  ]
+}
