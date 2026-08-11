@@ -26,6 +26,8 @@ use App\Http\Controllers\PdfController;
 use App\Http\Controllers\SalesReportController;
 use App\Http\Controllers\CropImageController;
 use App\Http\Controllers\MonthlySubscriptionController;
+use App\Http\Controllers\AppointmentController;
+use App\Http\Controllers\AdminAppointmentController;
 
 
 /*
@@ -40,6 +42,22 @@ use App\Http\Controllers\MonthlySubscriptionController;
 */
 
 Auth::routes(['verify' => true]);
+
+// Public appointment scheduling
+Route::get('/book-appointment', [AppointmentController::class, 'index'])->name('appointments.index');
+Route::get('/book-appointment/availability', [AppointmentController::class, 'availability'])
+    ->middleware('throttle:60,1')
+    ->name('appointments.availability');
+Route::post('/book-appointment', [AppointmentController::class, 'store'])
+    ->middleware('throttle:20,1')
+    ->name('appointments.store');
+
+Route::middleware('auth')->prefix('dashboard/appointments')->name('dashboard.appointments.')->group(function () {
+    Route::get('/{appointment}/edit', [AdminAppointmentController::class, 'edit'])->name('edit');
+    Route::get('/{appointment}/availability', [AdminAppointmentController::class, 'availability'])->name('availability');
+    Route::put('/{appointment}', [AdminAppointmentController::class, 'update'])->name('update');
+    Route::post('/{appointment}/create-patient', [AdminAppointmentController::class, 'createPatient'])->name('create-patient');
+});
 
 // Dashboard Route
 // Route::get('/', [DashboardController::class, 'dashboardModern'])->middleware('verified');

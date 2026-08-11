@@ -53,6 +53,33 @@
     padding-left: 5px !important;
     padding: 2px 5px !important;
 }
+.appointment-dashboard-card { overflow: hidden; border-radius: 10px; }
+.appointment-dashboard-header { padding: 18px 22px; display: flex; align-items: center; justify-content: space-between; gap: 18px; color: #000000; background: #a28e85; }
+.appointment-dashboard-header h5 { margin: 0; color: #000000; font-size: 19px; }
+.appointment-dashboard-header p { margin: 4px 0 0; color: #000000; font-size: 12px; opacity: .72; }
+.appointment-count { min-width: 46px; height: 46px; padding: 0 10px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid #000000; border-radius: 23px; color: #000000; background: #eee9e3; font-size: 18px; font-weight: 800; }
+.appointment-dashboard-body { padding: 5px 20px 14px; }
+.appointment-dashboard-row { padding: 14px 3px; display: grid; grid-template-columns: minmax(190px, 1.1fr) minmax(150px, .8fr) minmax(170px, .8fr) minmax(150px, .8fr); gap: 18px; align-items: center; border-bottom: 1px solid #a28e85; }
+.appointment-dashboard-row:last-child { border-bottom: 0; }
+.appointment-patient-name { margin: 0; color: #000000; font-weight: 700; }
+.appointment-meta, .appointment-contact { margin: 3px 0 0; color: #000000; font-size: 11px; opacity: .66; }
+.appointment-date { color: #000000; font-weight: 700; }
+.appointment-time { display: block; margin-top: 3px; color: #000000; font-size: 12px; font-weight: 700; }
+.appointment-reason { color: #000000; font-size: 12px; }
+.appointment-today { width: fit-content; padding: 4px 9px; border-radius: 12px; color: #000000; background: #a28e85; font-size: 9px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.appointment-empty { padding: 28px 10px; color: #000000; text-align: center; opacity: .65; }
+.appointment-actions { margin-top: 8px; display: flex; flex-wrap: wrap; gap: 6px; }
+.appointment-actions form { margin: 0; }
+.appointment-action { min-height: 28px; padding: 0 10px; display: inline-flex; align-items: center; border: 1px solid #a28e85; border-radius: 6px; color: #000000; background: #ffffff; font-size: 10px; font-weight: 800; line-height: 1; cursor: pointer; }
+.appointment-action:hover { color: #000000; border-color: #000000; background: #a28e85; }
+.appointment-action-create { color: #000000; border-color: #a28e85; background: #eee9e3; }
+.appointment-action-view { color: #000000; border-color: #000000; background: #a28e85; }
+.booking-dashboard-success { margin-bottom: 18px; padding: 13px 17px; border: 1px solid #a28e85; border-radius: 8px; color: #000000; background: #eee9e3; }
+@media (max-width: 700px) {
+   .appointment-dashboard-row { grid-template-columns: 1fr 1fr; gap: 10px; }
+   .appointment-dashboard-header { align-items: flex-start; }
+   .appointment-dashboard-body { padding-inline: 13px; }
+}
 </style>
 <link rel="stylesheet" type="text/css" href="{{asset('vendors/animate-css/animate.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('vendors/chartist-js/chartist.min.css')}}">
@@ -68,6 +95,57 @@
 
 {{-- page content --}}
 @section('content')
+@if(session('booking_success'))
+<div class='booking-dashboard-success'>{{ session('booking_success') }} @if(session('created_patient_id'))<a href='/patient/{{ session('created_patient_id') }}'><u>View patient record</u></a>@endif</div>
+@endif
+<div class='row'>
+   <div class='col s12'>
+      <div class='card appointment-dashboard-card animate fadeUp'>
+         <div class='appointment-dashboard-header'>
+            <div>
+               <h5>Upcoming Online Reservations</h5>
+               <p>New public bookings appear here automatically. {{ $pageConfigs['appointmentsTodayCount'] }} scheduled today.</p>
+            </div>
+            <div style='display:flex;align-items:center;gap:12px;'>
+               <a href='{{ route('appointments.index') }}' target='_blank' rel='noopener' style='color:#000000;font-size:12px;font-weight:700;'>Open booking page</a>
+               <span class='appointment-count'>{{ count($pageConfigs['upcomingAppointments']) }}</span>
+            </div>
+         </div>
+         <div class='appointment-dashboard-body'>
+            @forelse($pageConfigs['upcomingAppointments'] as $appointment)
+               <div class='appointment-dashboard-row'>
+                  <div>
+                     <p class='appointment-patient-name'>{{ $appointment->first_name }} {{ $appointment->last_name }}</p>
+                     <p class='appointment-contact'>{{ $appointment->phone }} &middot; {{ $appointment->email }}</p>
+                  </div>
+                  <div>
+                     <span class='appointment-date'>{{ $appointment->displayDate }}</span>
+                     <span class='appointment-time'>{{ $appointment->displayTime }} &ndash; {{ date('g:i A', strtotime($appointment->appointment_time . ' +1 hour')) }}</span>
+                  </div>
+                  <div class='appointment-reason'>{{ $appointment->reason }}</div>
+                  <div>
+                     @if($appointment->isToday)<span class='appointment-today'>Today</span>@endif
+                     <p class='appointment-meta'>Reserved {{ date('M j, g:i A', strtotime($appointment->created_at)) }}</p>
+                     <div class='appointment-actions'>
+                        <a class='appointment-action' href='{{ route('dashboard.appointments.edit', $appointment->id) }}'>Edit booking</a>
+                        @if($appointment->patient_id)
+                           <a class='appointment-action appointment-action-view' href='/patient/{{ $appointment->patient_id }}'>View patient</a>
+                        @else
+                           <form method='POST' action='{{ route('dashboard.appointments.create-patient', $appointment->id) }}' onsubmit='return confirm(&quot;Create a new patient record from this booking?&quot;)'>
+                              @csrf
+                              <button class='appointment-action appointment-action-create' type='submit'>Create patient record</button>
+                           </form>
+                        @endif
+                     </div>
+                  </div>
+               </div>
+            @empty
+               <div class='appointment-empty'>No upcoming online reservations yet.</div>
+            @endforelse
+         </div>
+      </div>
+   </div>
+</div>
 <div class="seaction fadeLeft">
    <!--Line Chart-->
    <!-- <div id="chartjs-line-chart" class="card col s12 m8 " >

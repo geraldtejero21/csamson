@@ -330,11 +330,39 @@ foreach($filter as $checkArray) {
 
 
            $userType =  Auth::user()->type;
+
+        $today = date('Y-m-d');
+        $currentTime = date('H:i:s');
+        $upcomingAppointments = DB::table('appointments')
+            ->where('status', '=', 'reserved')
+            ->where(function ($query) use ($today, $currentTime) {
+                $query->where('appointment_date', '>', $today)
+                    ->orWhere(function ($sameDay) use ($today, $currentTime) {
+                        $sameDay->where('appointment_date', '=', $today)
+                            ->where('appointment_time', '>=', $currentTime);
+                    });
+            })
+            ->orderBy('appointment_date', 'asc')
+            ->orderBy('appointment_time', 'asc')
+            ->take(8)
+            ->get();
+
+        foreach ($upcomingAppointments as $appointment) {
+            $appointment->displayDate = date('M j, Y', strtotime($appointment->appointment_date));
+            $appointment->displayTime = date('g:i A', strtotime($appointment->appointment_time));
+            $appointment->isToday = $appointment->appointment_date === $today;
+        }
+
+        $appointmentsTodayCount = DB::table('appointments')
+            ->where('status', '=', 'reserved')
+            ->where('appointment_date', '=', $today)
+            ->count();
+
         // Breadcrumbs
         $breadcrumbs = [
             ['link' => "modern", 'name' => "Home"],  ['name' => "Dashboard"],
         ];
-        $pageConfigs = ['followUp' => $superFinal, 'birthDaCelebrant' => $birthDaCelebrant, 'userType' => $userType, 'latestPatient' => $latestPatient, 'total_sales' => $total_sales, 'pageHeader' => true, 'isFabButton' => true, 'd0'=> $d[0], 'd1' => $d[1], 'd2' => $d[2], 'd3' => $d[3], 'd4' => $d[4],
+        $pageConfigs = ['upcomingAppointments' => $upcomingAppointments, 'appointmentsTodayCount' => $appointmentsTodayCount, 'followUp' => $superFinal, 'birthDaCelebrant' => $birthDaCelebrant, 'userType' => $userType, 'latestPatient' => $latestPatient, 'total_sales' => $total_sales, 'pageHeader' => true, 'isFabButton' => true, 'd0'=> $d[0], 'd1' => $d[1], 'd2' => $d[2], 'd3' => $d[3], 'd4' => $d[4],
             'totalDaily_sales0' => $totalDaily_sales[0], 'totalDaily_sales1' => $totalDaily_sales[1], 'totalDaily_sales2' => $totalDaily_sales[2], 'totalDaily_sales3' => $totalDaily_sales[3], 'totalDaily_sales4' => $totalDaily_sales[4]];
         // $dateRange = [' ];
      return view('/pages/dashboard-modern', ['breadcrumbs' => $breadcrumbs], ['pageConfigs' => $pageConfigs]);
