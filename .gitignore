@@ -7,6 +7,7 @@
 /public/css
 /public/images
 /public/fonts
+/public/patient_uploads
 /public/vendors
 /public/json
 /storage/*.key

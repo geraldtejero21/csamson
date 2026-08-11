@@ -1,0 +1,2071 @@
+ .editorconfig                                      |    15 [32m+[m
+ .env.example                                       |    50 [32m+[m
+ .gitattributes                                     |     5 [32m+[m
+ .gitignore                                         |    27 [32m+[m
+ .htaccess                                          |     3 [32m+[m
+ .styleci.yml                                       |    13 [32m+[m
+ app/Console/Kernel.php                             |    41 [32m+[m
+ app/Exceptions/Handler.php                         |    40 [32m+[m
+ app/Helpers/helpers.php                            |   212 [32m+[m
+ app/Http/Controllers/AdvanceUiController.php       |   134 [32m+[m
+ app/Http/Controllers/ApplicationController.php     |  1420 [32m++[m
+ .../Controllers/Auth/ConfirmPasswordController.php |    40 [32m+[m
+ .../Controllers/Auth/ForgotPasswordController.php  |    31 [32m+[m
+ app/Http/Controllers/Auth/LoginController.php      |    60 [32m+[m
+ app/Http/Controllers/Auth/RegisterController.php   |    85 [32m+[m
+ .../Controllers/Auth/ResetPasswordController.php   |    40 [32m+[m
+ .../Controllers/Auth/VerificationController.php    |    42 [32m+[m
+ app/Http/Controllers/AuthenticationController.php  |    47 [32m+[m
+ app/Http/Controllers/BasicTableController.php      |    17 [32m+[m
+ app/Http/Controllers/BasicUiController.php         |   115 [32m+[m
+ app/Http/Controllers/CardController.php            |    40 [32m+[m
+ app/Http/Controllers/ChartController.php           |    50 [32m+[m
+ app/Http/Controllers/Controller copy.php           |    13 [32m+[m
+ app/Http/Controllers/Controller.php                |    13 [32m+[m
+ app/Http/Controllers/CropImageController.php       |    52 [32m+[m
+ app/Http/Controllers/CssController.php             |   113 [32m+[m
+ app/Http/Controllers/DashboardController.php       |   358 [32m+[m
+ app/Http/Controllers/DataTableController.php       |    18 [32m+[m
+ app/Http/Controllers/ExtraComponentsController.php |    83 [32m+[m
+ app/Http/Controllers/FileUploadController.php      |   151 [32m+[m
+ app/Http/Controllers/FormController.php            |    88 [32m+[m
+ app/Http/Controllers/LanguageController.php        |    24 [32m+[m
+ app/Http/Controllers/MediaController.php           |    29 [32m+[m
+ app/Http/Controllers/MiscController.php            |    27 [32m+[m
+ .../Controllers/MonthlySubscriptionController.php  |    74 [32m+[m
+ app/Http/Controllers/PageController.php            |    98 [32m+[m
+ app/Http/Controllers/PdfController.php             |   219 [32m+[m
+ .../Controllers/SalesReportController - Copy.php   |   341 [32m+[m
+ app/Http/Controllers/SalesReportController.php     |   418 [32m+[m
+ app/Http/Controllers/SearchController.php          |   215 [32m+[m
+ app/Http/Controllers/SignaturePadController.php    |    67 [32m+[m
+ app/Http/Controllers/UserController.php            |   104 [32m+[m
+ app/Http/Controllers/UserProfileController.php     |    17 [32m+[m
+ app/Http/Kernel.php                                |    67 [32m+[m
+ app/Http/Middleware/Authenticate.php               |    21 [32m+[m
+ app/Http/Middleware/EncryptCookies.php             |    17 [32m+[m
+ app/Http/Middleware/LocaleMiddleware.php           |    34 [32m+[m
+ .../PreventRequestsDuringMaintenance.php           |    17 [32m+[m
+ app/Http/Middleware/RedirectIfAuthenticated.php    |    32 [32m+[m
+ app/Http/Middleware/TrimStrings.php                |    18 [32m+[m
+ app/Http/Middleware/TrustHosts.php                 |    20 [32m+[m
+ app/Http/Middleware/TrustProxies.php               |    23 [32m+[m
+ app/Http/Middleware/VerifyCsrfToken.php            |    17 [32m+[m
+ app/Models/DailyExpense.php                        |    42 [32m+[m
+ app/Models/File.php                                |    16 [32m+[m
+ app/Models/InstallmentAmount.php                   |    42 [32m+[m
+ app/Models/InstallmentRecord.php                   |    42 [32m+[m
+ app/Models/MonthlySubscription.php                 |    42 [32m+[m
+ app/Models/Patient.php                             |    42 [32m+[m
+ app/Models/PatientConsentlink.php                  |    42 [32m+[m
+ app/Models/PatientPaymentMethodRecord.php          |    42 [32m+[m
+ app/Models/PatientsTreatmentRecord.php             |    42 [32m+[m
+ app/Models/PatientsTreatmentRecordProcedure.php    |    42 [32m+[m
+ app/Models/User.php                                |    43 [32m+[m
+ app/Providers/AppServiceProvider.php               |    28 [32m+[m
+ app/Providers/AuthServiceProvider.php              |    28 [32m+[m
+ app/Providers/BroadcastServiceProvider.php         |    21 [32m+[m
+ app/Providers/EventServiceProvider.php             |    32 [32m+[m
+ app/Providers/MenuServiceProvider.php              |    35 [32m+[m
+ app/Providers/RouteServiceProvider.php             |    63 [32m+[m
+ artisan                                            |    53 [32m+[m
+ bootstrap/app.php                                  |    55 [32m+[m
+ bootstrap/cache/.gitignore                         |     2 [32m+[m
+ composer.json                                      |    68 [32m+[m
+ composer.lock                                      |  8241 [32m++++++++++[m
+ config/app.php                                     |   237 [32m+[m
+ config/auth.php                                    |   117 [32m+[m
+ config/broadcasting.php                            |    64 [32m+[m
+ config/cache.php                                   |   106 [32m+[m
+ config/cors.php                                    |    34 [32m+[m
+ config/custom.php                                  |    26 [32m+[m
+ config/database.php                                |   147 [32m+[m
+ config/filesystems.php                             |    76 [32m+[m
+ config/hashing.php                                 |    52 [32m+[m
+ config/logging.php                                 |   104 [32m+[m
+ config/mail.php                                    |   110 [32m+[m
+ config/queue.php                                   |    89 [32m+[m
+ config/services.php                                |    33 [32m+[m
+ config/session.php                                 |   201 [32m+[m
+ config/view.php                                    |    36 [32m+[m
+ database/.gitignore                                |     2 [32m+[m
+ database/factories/UserFactory.php                 |    33 [32m+[m
+ .../2014_10_12_000000_create_users_table.php       |    36 [32m+[m
+ ...4_10_12_100000_create_password_resets_table.php |    32 [32m+[m
+ .../2019_08_19_000000_create_failed_jobs_table.php |    36 [32m+[m
+ ...11_000000_create_patient_dental_chart_table.php |    25 [32m+[m
+ database/seeders/DatabaseSeeder.php                |    18 [32m+[m
+ default.php                                        |   299 [32m+[m
+ docker-compose.yml                                 |    94 [32m+[m
+ package.json                                       |    24 [32m+[m
+ phpunit.xml                                        |    31 [32m+[m
+ public/.DS_Store                                   |   Bin [31m0[m -> [32m6148[m bytes
+ public/.htaccess                                   |    21 [32m+[m
+ public/assets/images/sagun-check.png               |   Bin [31m0[m -> [32m2220[m bytes
+ public/banner.jpg                                  |   Bin [31m0[m -> [32m71009[m bytes
+ public/css-rtl/custom/custom.css                   |    11 [32m+[m
+ public/css-rtl/custom/custom.min.css               |     0
+ public/css-rtl/layouts/style-horizontal.css        |   257 [32m+[m
+ public/css-rtl/layouts/style-horizontal.min.css    |     1 [32m+[m
+ public/css-rtl/pages/advance-ui-media.css          |     7 [32m+[m
+ public/css-rtl/pages/advance-ui-media.min.css      |     1 [32m+[m
+ public/css-rtl/pages/app-calendar.css              |    61 [32m+[m
+ public/css-rtl/pages/app-calendar.min.css          |     1 [32m+[m
+ public/css-rtl/pages/app-chat.css                  |   856 [32m++[m
+ public/css-rtl/pages/app-chat.min.css              |     1 [32m+[m
+ public/css-rtl/pages/app-contacts.css              |   424 [32m+[m
+ public/css-rtl/pages/app-contacts.min.css          |     1 [32m+[m
+ public/css-rtl/pages/app-email-content.css         |   448 [32m+[m
+ public/css-rtl/pages/app-email-content.min.css     |     1 [32m+[m
+ public/css-rtl/pages/app-email.css                 |   555 [32m+[m
+ public/css-rtl/pages/app-email.min.css             |     1 [32m+[m
+ public/css-rtl/pages/app-file-manager.css          |   376 [32m+[m
+ public/css-rtl/pages/app-file-manager.min.css      |     1 [32m+[m
+ public/css-rtl/pages/app-invoice.css               |   457 [32m+[m
+ public/css-rtl/pages/app-invoice.min.css           |     1 [32m+[m
+ public/css-rtl/pages/app-kanban.css                |   397 [32m+[m
+ public/css-rtl/pages/app-kanban.min.css            |     1 [32m+[m
+ public/css-rtl/pages/app-sidebar.css               |   285 [32m+[m
+ public/css-rtl/pages/app-sidebar.min.css           |     1 [32m+[m
+ public/css-rtl/pages/app-todo.css                  |   557 [32m+[m
+ public/css-rtl/pages/app-todo.min.css              |     1 [32m+[m
+ public/css-rtl/pages/badges.css                    |    19 [32m+[m
+ public/css-rtl/pages/badges.min.css                |     1 [32m+[m
+ public/css-rtl/pages/cards-basic.css               |     7 [32m+[m
+ public/css-rtl/pages/cards-basic.min.css           |     1 [32m+[m
+ public/css-rtl/pages/charts-chartist.css           |     8 [32m+[m
+ public/css-rtl/pages/charts-chartist.min.css       |     1 [32m+[m
+ public/css-rtl/pages/charts-sparkline.css          |    21 [32m+[m
+ public/css-rtl/pages/charts-sparkline.min.css      |     1 [32m+[m
+ public/css-rtl/pages/component-navbar.css          |    34 [32m+[m
+ public/css-rtl/pages/component-navbar.min.css      |     1 [32m+[m
+ public/css-rtl/pages/contacts.css                  |    36 [32m+[m
+ public/css-rtl/pages/contacts.min.css              |     1 [32m+[m
+ public/css-rtl/pages/css-media.css                 |    18 [32m+[m
+ public/css-rtl/pages/css-media.min.css             |     1 [32m+[m
+ public/css-rtl/pages/dashboard-modern.css          |   278 [32m+[m
+ public/css-rtl/pages/dashboard-modern.min.css      |     1 [32m+[m
+ public/css-rtl/pages/dashboard.css                 |    43 [32m+[m
+ public/css-rtl/pages/dashboard.min.css             |     1 [32m+[m
+ public/css-rtl/pages/data-tables.css               |   200 [32m+[m
+ public/css-rtl/pages/data-tables.min.css           |     1 [32m+[m
+ public/css-rtl/pages/eCommerce-products-page.css   |   218 [32m+[m
+ .../css-rtl/pages/eCommerce-products-page.min.css  |     1 [32m+[m
+ public/css-rtl/pages/error.css                     |    16 [32m+[m
+ public/css-rtl/pages/error.min.css                 |     1 [32m+[m
+ public/css-rtl/pages/extra-components-tour.css     |    27 [32m+[m
+ public/css-rtl/pages/extra-components-tour.min.css |     1 [32m+[m
+ public/css-rtl/pages/extra-components-treeview.css |     9 [32m+[m
+ .../pages/extra-components-treeview.min.css        |     1 [32m+[m
+ public/css-rtl/pages/forgot.css                    |    33 [32m+[m
+ public/css-rtl/pages/forgot.min.css                |     1 [32m+[m
+ public/css-rtl/pages/form-select2.css              |    37 [32m+[m
+ public/css-rtl/pages/form-select2.min.css          |     1 [32m+[m
+ public/css-rtl/pages/form-wizard.css               |    46 [32m+[m
+ public/css-rtl/pages/form-wizard.min.css           |     1 [32m+[m
+ public/css-rtl/pages/gallery.css                   |    17 [32m+[m
+ public/css-rtl/pages/gallery.min.css               |     1 [32m+[m
+ public/css-rtl/pages/icon.css                      |    40 [32m+[m
+ public/css-rtl/pages/icon.min.css                  |     1 [32m+[m
+ public/css-rtl/pages/intro.css                     |   195 [32m+[m
+ public/css-rtl/pages/intro.min.css                 |     1 [32m+[m
+ public/css-rtl/pages/lock.css                      |    33 [32m+[m
+ public/css-rtl/pages/lock.min.css                  |     1 [32m+[m
+ public/css-rtl/pages/login.css                     |    33 [32m+[m
+ public/css-rtl/pages/login.min.css                 |     1 [32m+[m
+ public/css-rtl/pages/map.css                       |    29 [32m+[m
+ public/css-rtl/pages/map.min.css                   |     1 [32m+[m
+ public/css-rtl/pages/page-404.css                  |    69 [32m+[m
+ public/css-rtl/pages/page-404.min.css              |     1 [32m+[m
+ public/css-rtl/pages/page-500.css                  |    69 [32m+[m
+ public/css-rtl/pages/page-500.min.css              |     1 [32m+[m
+ public/css-rtl/pages/page-account-settings.css     |   137 [32m+[m
+ public/css-rtl/pages/page-account-settings.min.css |     1 [32m+[m
+ public/css-rtl/pages/page-blog.css                 |    83 [32m+[m
+ public/css-rtl/pages/page-blog.min.css             |     1 [32m+[m
+ public/css-rtl/pages/page-contact.css              |   167 [32m+[m
+ public/css-rtl/pages/page-contact.min.css          |     1 [32m+[m
+ public/css-rtl/pages/page-faq.css                  |   167 [32m+[m
+ public/css-rtl/pages/page-faq.min.css              |     1 [32m+[m
+ public/css-rtl/pages/page-knowledge.css            |   136 [32m+[m
+ public/css-rtl/pages/page-knowledge.min.css        |     1 [32m+[m
+ public/css-rtl/pages/page-maintenance.css          |    42 [32m+[m
+ public/css-rtl/pages/page-maintenance.min.css      |     1 [32m+[m
+ public/css-rtl/pages/page-search.css               |    79 [32m+[m
+ public/css-rtl/pages/page-search.min.css           |     1 [32m+[m
+ public/css-rtl/pages/page-timeline.css             |   225 [32m+[m
+ public/css-rtl/pages/page-timeline.min.css         |     1 [32m+[m
+ public/css-rtl/pages/page-users.css                |   172 [32m+[m
+ public/css-rtl/pages/page-users.min.css            |     1 [32m+[m
+ public/css-rtl/pages/pricing.css                   |   121 [32m+[m
+ public/css-rtl/pages/pricing.min.css               |     1 [32m+[m
+ public/css-rtl/pages/product.css                   |    19 [32m+[m
+ public/css-rtl/pages/product.min.css               |     1 [32m+[m
+ public/css-rtl/pages/profile.css                   |    92 [32m+[m
+ public/css-rtl/pages/profile.min.css               |     1 [32m+[m
+ public/css-rtl/pages/register.css                  |    33 [32m+[m
+ public/css-rtl/pages/register.min.css              |     1 [32m+[m
+ public/css-rtl/pages/user-profile-page.css         |    76 [32m+[m
+ public/css-rtl/pages/user-profile-page.min.css     |     1 [32m+[m
+ public/css-rtl/pages/variables.css                 |     0
+ public/css-rtl/pages/variables.min.css             |     0
+ public/css-rtl/pages/widget-timeline.css           |    94 [32m+[m
+ public/css-rtl/pages/widget-timeline.min.css       |     1 [32m+[m
+ public/css-rtl/style-rtl.css                       |  3348 [32m+++++[m
+ public/css-rtl/style-rtl.min.css                   |     1 [32m+[m
+ .../horizontal-menu-template/materialize.css       | 11596 [32m++++++++++++++[m
+ .../horizontal-menu-template/materialize.min.css   |     8 [32m+[m
+ .../themes/horizontal-menu-template/style.css      | 12137 [32m+++++++++++++++[m
+ .../themes/horizontal-menu-template/style.min.css  |     1 [32m+[m
+ .../vertical-dark-menu-template/materialize.css    | 11529 [32m++++++++++++++[m
+ .../materialize.min.css                            |     8 [32m+[m
+ .../themes/vertical-dark-menu-template/style.css   | 12070 [32m+++++++++++++++[m
+ .../vertical-dark-menu-template/style.min.css      |     1 [32m+[m
+ .../materialize.css                                | 11524 [32m++++++++++++++[m
+ .../materialize.min.css                            |     8 [32m+[m
+ .../vertical-gradient-menu-template/style.css      | 12065 [32m+++++++++++++++[m
+ .../vertical-gradient-menu-template/style.min.css  |     1 [32m+[m
+ .../materialize.css                                | 11519 [32m++++++++++++++[m
+ .../materialize.min.css                            |     8 [32m+[m
+ .../vertical-menu-nav-dark-template/style.css      | 12062 [32m+++++++++++++++[m
+ .../vertical-menu-nav-dark-template/style.min.css  |     1 [32m+[m
+ .../vertical-modern-menu-template/materialize.css  | 11519 [32m++++++++++++++[m
+ .../materialize.min.css                            |     8 [32m+[m
+ .../themes/vertical-modern-menu-template/style.css | 12064 [32m+++++++++++++++[m
+ .../vertical-modern-menu-template/style.min.css    |     1 [32m+[m
+ public/data/locales/de.json                        |   135 [32m+[m
+ public/data/locales/en.json                        |   135 [32m+[m
+ public/data/locales/fr.json                        |   135 [32m+[m
+ public/data/locales/pt.json                        |   135 [32m+[m
+ public/data/starter-kit-list.json                  |    16 [32m+[m
+ public/data/template-list.json                     |     0
+ public/favicon.ico                                 |     0
+ public/index.php                                   |    56 [32m+[m
+ public/invoice.pdf                                 |   Bin [31m0[m -> [32m6370[m bytes
+ public/lang/de/locale.php                          |   139 [32m+[m
+ public/lang/en/auth.php                            |    19 [32m+[m
+ public/lang/en/locale.php                          |   138 [32m+[m
+ public/lang/en/pagination.php                      |    19 [32m+[m
+ public/lang/en/passwords.php                       |    22 [32m+[m
+ public/lang/en/validation.php                      |   151 [32m+[m
+ public/lang/fr/locale.php                          |   138 [32m+[m
+ public/lang/pt/locale.php                          |   138 [32m+[m
+ public/mix-manifest.json                           |   145 [32m+[m
+ .../HfB6uxOeL19qsgn1h6oxd6jFaKv6RGZg8lYqUtfI.pdf   |   Bin [31m0[m -> [32m220806[m bytes
+ .../KHncHIIJxWTzXT9tmJILMflNpStCZZ4vtMZw2JVf.pdf   |   Bin [31m0[m -> [32m220806[m bytes
+ public/robots.txt                                  |     2 [32m+[m
+ public/sass/components/_badges.scss                |    55 [32m+[m
+ public/sass/components/_buttons.scss               |   322 [32m+[m
+ public/sass/components/_cards.scss                 |   195 [32m+[m
+ public/sass/components/_carousel.scss              |    90 [32m+[m
+ public/sass/components/_chips.scss                 |    90 [32m+[m
+ public/sass/components/_collapsible.scss           |    91 [32m+[m
+ public/sass/components/_color-classes.scss         |    32 [32m+[m
+ public/sass/components/_color-variables.scss       |   372 [32m+[m
+ public/sass/components/_datepicker.scss            |   191 [32m+[m
+ public/sass/components/_dropdown.scss              |    85 [32m+[m
+ public/sass/components/_global.scss                |   771 [32m+[m
+ public/sass/components/_grid.scss                  |   156 [32m+[m
+ public/sass/components/_icons-material-design.scss |     5 [32m+[m
+ public/sass/components/_materialbox.scss           |    43 [32m+[m
+ public/sass/components/_modal.scss                 |    94 [32m+[m
+ public/sass/components/_navbar.scss                |   219 [32m+[m
+ public/sass/components/_normalize.scss             |   447 [32m+[m
+ public/sass/components/_preloader.scss             |   334 [32m+[m
+ public/sass/components/_pulse.scss                 |    34 [32m+[m
+ public/sass/components/_sidenav.scss               |   235 [32m+[m
+ public/sass/components/_slider.scss                |    92 [32m+[m
+ public/sass/components/_table_of_contents.scss     |    33 [32m+[m
+ public/sass/components/_tabs.scss                  |    99 [32m+[m
+ public/sass/components/_tapTarget.scss             |   103 [32m+[m
+ public/sass/components/_timepicker.scss            |   183 [32m+[m
+ public/sass/components/_toast.scss                 |    58 [32m+[m
+ public/sass/components/_tooltip.scss               |    32 [32m+[m
+ public/sass/components/_transitions.scss           |    13 [32m+[m
+ public/sass/components/_typography.scss            |    60 [32m+[m
+ public/sass/components/_variables.scss             |   339 [32m+[m
+ public/sass/components/_waves.scss                 |   114 [32m+[m
+ public/sass/components/forms/_checkboxes.scss      |   200 [32m+[m
+ public/sass/components/forms/_file-input.scss      |    44 [32m+[m
+ public/sass/components/forms/_forms.scss           |    22 [32m+[m
+ public/sass/components/forms/_input-fields.scss    |   354 [32m+[m
+ public/sass/components/forms/_radio-buttons.scss   |   115 [32m+[m
+ public/sass/components/forms/_range.scss           |   161 [32m+[m
+ public/sass/components/forms/_select.scss          |   180 [32m+[m
+ public/sass/components/forms/_switches.scss        |    89 [32m+[m
+ public/sass/custom/custom.scss                     |    11 [32m+[m
+ public/sass/laravel-custom.scss                    |    10 [32m+[m
+ public/sass/layouts/style-horizontal.scss          |   191 [32m+[m
+ public/sass/pages/advance-ui-media.scss            |     9 [32m+[m
+ public/sass/pages/app-calendar.scss                |    51 [32m+[m
+ public/sass/pages/app-chat.scss                    |   618 [32m+[m
+ public/sass/pages/app-contacts.scss                |   369 [32m+[m
+ public/sass/pages/app-email-content.scss           |   315 [32m+[m
+ public/sass/pages/app-email.scss                   |   401 [32m+[m
+ public/sass/pages/app-file-manager.scss            |   295 [32m+[m
+ public/sass/pages/app-invoice.scss                 |   386 [32m+[m
+ public/sass/pages/app-kanban.scss                  |   280 [32m+[m
+ public/sass/pages/app-sidebar.scss                 |   229 [32m+[m
+ public/sass/pages/app-todo.scss                    |   404 [32m+[m
+ public/sass/pages/badges.scss                      |    11 [32m+[m
+ public/sass/pages/cards-basic.scss                 |    11 [32m+[m
+ public/sass/pages/charts-chartist.scss             |     7 [32m+[m
+ public/sass/pages/charts-sparkline.scss            |    16 [32m+[m
+ public/sass/pages/component-navbar.scss            |    39 [32m+[m
+ public/sass/pages/contacts.scss                    |    33 [32m+[m
+ public/sass/pages/css-media.scss                   |    32 [32m+[m
+ public/sass/pages/dashboard-modern.scss            |   257 [32m+[m
+ public/sass/pages/dashboard.scss                   |    40 [32m+[m
+ public/sass/pages/data-tables.scss                 |   181 [32m+[m
+ public/sass/pages/eCommerce-products-page.scss     |   186 [32m+[m
+ public/sass/pages/error.scss                       |    14 [32m+[m
+ public/sass/pages/extra-components-tour.scss       |    25 [32m+[m
+ public/sass/pages/extra-components-treeview.scss   |    10 [32m+[m
+ public/sass/pages/forgot.scss                      |    22 [32m+[m
+ public/sass/pages/form-select2.scss                |    35 [32m+[m
+ public/sass/pages/form-wizard.scss                 |    52 [32m+[m
+ public/sass/pages/gallery.scss                     |    14 [32m+[m
+ public/sass/pages/icon.scss                        |    30 [32m+[m
+ public/sass/pages/intro.scss                       |   209 [32m+[m
+ public/sass/pages/lock.scss                        |    23 [32m+[m
+ public/sass/pages/login.scss                       |    24 [32m+[m
+ public/sass/pages/map.scss                         |    46 [32m+[m
+ public/sass/pages/page-404.scss                    |    57 [32m+[m
+ public/sass/pages/page-500.scss                    |    59 [32m+[m
+ public/sass/pages/page-account-settings.scss       |    92 [32m+[m
+ public/sass/pages/page-blog.scss                   |    78 [32m+[m
+ public/sass/pages/page-contact.scss                |   185 [32m+[m
+ public/sass/pages/page-faq.scss                    |   122 [32m+[m
+ public/sass/pages/page-knowledge.scss              |   128 [32m+[m
+ public/sass/pages/page-maintenance.scss            |    33 [32m+[m
+ public/sass/pages/page-search.scss                 |    72 [32m+[m
+ public/sass/pages/page-timeline.scss               |   162 [32m+[m
+ public/sass/pages/page-users.scss                  |   175 [32m+[m
+ public/sass/pages/pricing.scss                     |    93 [32m+[m
+ public/sass/pages/product.scss                     |    23 [32m+[m
+ public/sass/pages/profile.scss                     |    72 [32m+[m
+ public/sass/pages/register.scss                    |    22 [32m+[m
+ public/sass/pages/user-profile-page.scss           |    58 [32m+[m
+ public/sass/pages/variables.scss                   |    20 [32m+[m
+ public/sass/pages/widget-timeline.scss             |    77 [32m+[m
+ public/sass/style-rtl.scss                         |   803 [32m+[m
+ public/sass/theme-components/_avatar.scss          |   180 [32m+[m
+ public/sass/theme-components/_badges.scss          |    25 [32m+[m
+ public/sass/theme-components/_breadcrumb.scss      |   121 [32m+[m
+ public/sass/theme-components/_buttons.scss         |    14 [32m+[m
+ public/sass/theme-components/_calendar.scss        |    46 [32m+[m
+ public/sass/theme-components/_card.scss            |   429 [32m+[m
+ public/sass/theme-components/_chart.scss           |   198 [32m+[m
+ public/sass/theme-components/_color.scss           |   277 [32m+[m
+ .../sass/theme-components/_custom-animations.scss  |    79 [32m+[m
+ public/sass/theme-components/_dropdown.scss        |    27 [32m+[m
+ public/sass/theme-components/_footer.scss          |    42 [32m+[m
+ public/sass/theme-components/_forms.scss           |   106 [32m+[m
+ public/sass/theme-components/_global.scss          |   148 [32m+[m
+ public/sass/theme-components/_grid.scss            |    13 [32m+[m
+ public/sass/theme-components/_helper.scss          |   660 [32m+[m
+ public/sass/theme-components/_icons.scss           |    72 [32m+[m
+ public/sass/theme-components/_miscellaneous.scss   |   244 [32m+[m
+ public/sass/theme-components/_modal.scss           |    20 [32m+[m
+ public/sass/theme-components/_navbar.scss          |   383 [32m+[m
+ public/sass/theme-components/_pulse.scss           |     9 [32m+[m
+ public/sass/theme-components/_sidenav.scss         |   570 [32m+[m
+ public/sass/theme-components/_slideout.scss        |   330 [32m+[m
+ public/sass/theme-components/_table.scss           |    34 [32m+[m
+ public/sass/theme-components/_theme-variables.scss |    26 [32m+[m
+ public/sass/theme-components/_typography.scss      |   156 [32m+[m
+ public/sass/theme-components/customizer.scss       |   104 [32m+[m
+ .../horizontal-menu-template/_theme-variables.scss |     5 [32m+[m
+ .../themes/horizontal-menu-template/_theme.scss    |   107 [32m+[m
+ .../horizontal-menu-template/_variables.scss       |    43 [32m+[m
+ .../horizontal-menu-template/materialize.scss      |    50 [32m+[m
+ .../themes/horizontal-menu-template/style.scss     |    51 [32m+[m
+ .../sample-theme-starter/_theme-variables.scss     |    17 [32m+[m
+ .../sass/themes/sample-theme-starter/_theme.scss   |    15 [32m+[m
+ .../themes/sample-theme-starter/_variables.scss    |    44 [32m+[m
+ .../themes/sample-theme-starter/materialize.scss   |    50 [32m+[m
+ public/sass/themes/sample-theme-starter/style.scss |    51 [32m+[m
+ .../_theme-variables.scss                          |    17 [32m+[m
+ .../themes/vertical-dark-menu-template/_theme.scss |    32 [32m+[m
+ .../vertical-dark-menu-template/_variables.scss    |    43 [32m+[m
+ .../vertical-dark-menu-template/materialize.scss   |    50 [32m+[m
+ .../themes/vertical-dark-menu-template/style.scss  |    51 [32m+[m
+ .../_theme-variables.scss                          |    17 [32m+[m
+ .../vertical-gradient-menu-template/_theme.scss    |    28 [32m+[m
+ .../_variables.scss                                |    43 [32m+[m
+ .../materialize.scss                               |    50 [32m+[m
+ .../vertical-gradient-menu-template/style.scss     |    51 [32m+[m
+ .../_theme-variables.scss                          |    18 [32m+[m
+ .../vertical-menu-nav-dark-template/_theme.scss    |    17 [32m+[m
+ .../_variables.scss                                |    44 [32m+[m
+ .../materialize.scss                               |    50 [32m+[m
+ .../vertical-menu-nav-dark-template/style.scss     |    51 [32m+[m
+ .../_theme-variables.scss                          |    17 [32m+[m
+ .../vertical-modern-menu-template/_theme.scss      |    18 [32m+[m
+ .../vertical-modern-menu-template/_variables.scss  |    44 [32m+[m
+ .../vertical-modern-menu-template/materialize.scss |    50 [32m+[m
+ .../vertical-modern-menu-template/style.scss       |    51 [32m+[m
+ public/upload/60a37d8dd6827.png                    |   Bin [31m0[m -> [32m16807[m bytes
+ public/upload/60a481b988b0d.png                    |   Bin [31m0[m -> [32m4523[m bytes
+ public/upload/60a49daa5118e.png                    |   Bin [31m0[m -> [32m6458[m bytes
+ public/upload/60a5ace194de2.png                    |   Bin [31m0[m -> [32m8689[m bytes
+ public/upload/60a6f3c50d44c.png                    |   Bin [31m0[m -> [32m8231[m bytes
+ public/upload/60a716bcb546e.png                    |   Bin [31m0[m -> [32m8144[m bytes
+ public/upload/60a72fce9cfd5.png                    |   Bin [31m0[m -> [32m7098[m bytes
+ public/upload/60a730150dbb6.png                    |   Bin [31m0[m -> [32m4296[m bytes
+ public/upload/signa.png                            |   Bin [31m0[m -> [32m4478[m bytes
+ public/views/auth/login.blade.php                  |    79 [32m+[m
+ public/views/auth/passwords/confirm.blade.php      |    44 [32m+[m
+ public/views/auth/passwords/email.blade.php        |    73 [32m+[m
+ public/views/auth/passwords/reset.blade.php        |    68 [32m+[m
+ public/views/auth/verify.blade.php                 |    30 [32m+[m
+ public/views/layouts/contentLayoutMaster.blade.php |    53 [32m+[m
+ public/views/layouts/fullLayoutMaster.blade.php    |    60 [32m+[m
+ .../views/layouts/horizontalLayoutMaster.blade.php |    60 [32m+[m
+ .../views/layouts/verticalLayoutMaster.blade.php   |    67 [32m+[m
+ public/views/pages/advance-ui-carousel.blade.php   |   324 [32m+[m
+ .../views/pages/advance-ui-collapsibles.blade.php  |   598 [32m+[m
+ public/views/pages/advance-ui-dropdown.blade.php   |   196 [32m+[m
+ .../pages/advance-ui-feature-discovery.blade.php   |    92 [32m+[m
+ public/views/pages/advance-ui-media.blade.php      |   326 [32m+[m
+ public/views/pages/advance-ui-modals.blade.php     |   288 [32m+[m
+ public/views/pages/advance-ui-scrollspy.blade.php  |   153 [32m+[m
+ public/views/pages/advance-ui-tabs.blade.php       |   451 [32m+[m
+ public/views/pages/advance-ui-toasts.blade.php     |   231 [32m+[m
+ public/views/pages/advance-ui-tooltip.blade.php    |   145 [32m+[m
+ public/views/pages/advance-ui-waves.blade.php      |   220 [32m+[m
+ public/views/pages/app-calendar.blade.php          |    88 [32m+[m
+ public/views/pages/app-chat.blade.php              |   420 [32m+[m
+ public/views/pages/app-contacts.blade.php          |   625 [32m+[m
+ public/views/pages/app-email-content.blade.php     |   266 [32m+[m
+ public/views/pages/app-email.blade.php             |   627 [32m+[m
+ public/views/pages/app-file-manager.blade.php      |   660 [32m+[m
+ public/views/pages/app-invoice-add.blade.php       |   315 [32m+[m
+ public/views/pages/app-invoice-edit.blade.php      |   315 [32m+[m
+ public/views/pages/app-invoice-list.blade.php      |   392 [32m+[m
+ public/views/pages/app-invoice-view.blade.php      |   201 [32m+[m
+ public/views/pages/app-kanban.blade.php            |   136 [32m+[m
+ public/views/pages/app-todo.blade.php              |   563 [32m+[m
+ public/views/pages/cards-advance.blade.php         |   584 [32m+[m
+ public/views/pages/cards-basic.blade.php           |   455 [32m+[m
+ public/views/pages/cards-extended.blade.php        |   659 [32m+[m
+ public/views/pages/charts-chartist.blade.php       |   156 [32m+[m
+ public/views/pages/charts-chartjs.blade.php        |   117 [32m+[m
+ public/views/pages/charts-sparklines.blade.php     |   154 [32m+[m
+ public/views/pages/css-animations.blade.php        |   188 [32m+[m
+ public/views/pages/css-color.blade.php             |   475 [32m+[m
+ public/views/pages/css-grid.blade.php              |   885 [32m++[m
+ public/views/pages/css-helpers.blade.php           |   344 [32m+[m
+ public/views/pages/css-media.blade.php             |   234 [32m+[m
+ public/views/pages/css-pulse.blade.php             |   119 [32m+[m
+ public/views/pages/css-sass.blade.php              |   147 [32m+[m
+ public/views/pages/css-shadow.blade.php            |    85 [32m+[m
+ public/views/pages/css-transitions.blade.php       |    69 [32m+[m
+ public/views/pages/css-typography.blade.php        |   160 [32m+[m
+ public/views/pages/dashboard-analytics.blade.php   |   571 [32m+[m
+ public/views/pages/dashboard-ecommerce.blade.php   |   287 [32m+[m
+ public/views/pages/dashboard-modern.blade.php      |   240 [32m+[m
+ public/views/pages/eCommerce-pricing.blade.php     |   263 [32m+[m
+ .../views/pages/eCommerce-products-page.blade.php  |   673 [32m+[m
+ .../pages/extra-components-highlight.blade.php     |   316 [32m+[m
+ public/views/pages/extra-components-i18n.blade.php |    71 [32m+[m
+ .../pages/extra-components-nestable.blade.php      |   170 [32m+[m
+ .../pages/extra-components-range-slider.blade.php  |   299 [32m+[m
+ .../views/pages/extra-components-ratings.blade.php |   181 [32m+[m
+ .../pages/extra-components-sweetalert.blade.php    |   624 [32m+[m
+ public/views/pages/extra-components-tour.blade.php |    45 [32m+[m
+ .../pages/extra-components-treeview.blade.php      |   231 [32m+[m
+ public/views/pages/form-editor.blade.php           |   253 [32m+[m
+ public/views/pages/form-elements.blade.php         |  1435 [32m++[m
+ public/views/pages/form-file-uploads.blade.php     |   109 [32m+[m
+ public/views/pages/form-layouts.blade.php          |   339 [32m+[m
+ public/views/pages/form-masks.blade.php            |   214 [32m+[m
+ public/views/pages/form-select2.blade.php          |  1072 [32m++[m
+ .../views/pages/form-validation-patient.blade.php  |   296 [32m+[m
+ public/views/pages/form-validation.blade.php       |   296 [32m+[m
+ public/views/pages/form-wizard.blade.php           |   599 [32m+[m
+ .../views/pages/fullscreen-slider-demo.blade.php   |    42 [32m+[m
+ public/views/pages/intro.blade.php                 |    97 [32m+[m
+ public/views/pages/media-gallery-page.blade.php    |   211 [32m+[m
+ public/views/pages/media-hover-effects.blade.php   |   469 [32m+[m
+ public/views/pages/page-404.blade.php              |    27 [32m+[m
+ public/views/pages/page-500.blade.php              |    25 [32m+[m
+ public/views/pages/page-account-settings.blade.php |   429 [32m+[m
+ public/views/pages/page-blank.blade.php            |    20 [32m+[m
+ public/views/pages/page-blog-list.blade.php        |   320 [32m+[m
+ public/views/pages/page-collapse.blade.php         |    23 [32m+[m
+ public/views/pages/page-contact.blade.php          |   133 [32m+[m
+ public/views/pages/page-faq-detail.blade.php       |    89 [32m+[m
+ public/views/pages/page-faq.blade.php              |   187 [32m+[m
+ .../page-knowledge-licensing-detail.blade.php      |    73 [32m+[m
+ .../views/pages/page-knowledge-licensing.blade.php |    84 [32m+[m
+ public/views/pages/page-knowledge.blade.php        |   114 [32m+[m
+ public/views/pages/page-maintenance.blade.php      |    24 [32m+[m
+ public/views/pages/page-search.blade.php           |   176 [32m+[m
+ public/views/pages/page-timeline.blade.php         |   321 [32m+[m
+ public/views/pages/page-users-edit.blade.php       |   341 [32m+[m
+ public/views/pages/page-users-list.blade.php       |   628 [32m+[m
+ public/views/pages/page-users-view.blade.php       |   205 [32m+[m
+ public/views/pages/partials/buy-now.blade.php      |     4 [32m+[m
+ public/views/pages/partials/customizer.blade.php   |   189 [32m+[m
+ public/views/pages/sidebar/fab-menu.blade.php      |    13 [32m+[m
+ public/views/pages/sidebar/right-sidebar.blade.php |   537 [32m+[m
+ public/views/pages/table-basic.blade.php           |   370 [32m+[m
+ public/views/pages/table-data-table.blade.php      |  4068 [32m+++++[m
+ public/views/pages/ui-alerts.blade.php             |   338 [32m+[m
+ public/views/pages/ui-badges.blade.php             |   332 [32m+[m
+ public/views/pages/ui-basic-buttons.blade.php      |   460 [32m+[m
+ public/views/pages/ui-breadcrumbs.blade.php        |    94 [32m+[m
+ public/views/pages/ui-chips.blade.php              |   501 [32m+[m
+ public/views/pages/ui-collections.blade.php        |   410 [32m+[m
+ public/views/pages/ui-extended-buttons.blade.php   |   242 [32m+[m
+ public/views/pages/ui-icons.blade.php              |  2321 [32m+++[m
+ public/views/pages/ui-navbar.blade.php             |   946 [32m++[m
+ public/views/pages/ui-pagination.blade.php         |    81 [32m+[m
+ public/views/pages/ui-preloader.blade.php          |   441 [32m+[m
+ public/views/pages/user-forgot-password.blade.php  |    48 [32m+[m
+ public/views/pages/user-lock-screen.blade.php      |    48 [32m+[m
+ public/views/pages/user-login.blade.php            |    64 [32m+[m
+ public/views/pages/user-profile-page.blade.php     |   364 [32m+[m
+ public/views/pages/user-register.blade.php         |    65 [32m+[m
+ public/views/panels/breadcrumb.blade.php           |   152 [32m+[m
+ public/views/panels/footer.blade.php               |    16 [32m+[m
+ public/views/panels/horizontalNavbar.blade.php     |   328 [32m+[m
+ public/views/panels/horizontalSubmenu.blade.php    |    24 [32m+[m
+ public/views/panels/navbar.blade.php               |   320 [32m+[m
+ public/views/panels/scripts.blade.php              |    16 [32m+[m
+ public/views/panels/sidebar.blade.php              |    76 [32m+[m
+ public/views/panels/styles.blade.php               |    31 [32m+[m
+ public/views/panels/submenu.blade.php              |    25 [32m+[m
+ public/web.config                                  |    28 [32m+[m
+ resources/fonts/fontawesome/css/all.css            |  4222 [32m++++++[m
+ resources/fonts/fontawesome/css/all.min.css        |     1 [32m+[m
+ resources/fonts/fontawesome/css/brands.css         |     9 [32m+[m
+ resources/fonts/fontawesome/css/brands.min.css     |     1 [32m+[m
+ resources/fonts/fontawesome/css/fontawesome.css    |  4192 [32m++++++[m
+ .../fonts/fontawesome/css/fontawesome.min.css      |     1 [32m+[m
+ resources/fonts/fontawesome/css/regular.css        |    10 [32m+[m
+ resources/fonts/fontawesome/css/regular.min.css    |     1 [32m+[m
+ resources/fonts/fontawesome/css/solid.css          |    11 [32m+[m
+ resources/fonts/fontawesome/css/solid.min.css      |     1 [32m+[m
+ resources/fonts/fontawesome/css/svg-with-js.css    |   341 [32m+[m
+ .../fonts/fontawesome/css/svg-with-js.min.css      |     1 [32m+[m
+ resources/fonts/fontawesome/css/v4-shims.css       |  2162 [32m+++[m
+ resources/fonts/fontawesome/css/v4-shims.min.css   |     1 [32m+[m
+ resources/fonts/fontawesome/js/all.js              |  3843 [32m+++++[m
+ resources/fonts/fontawesome/js/all.min.js          |     1 [32m+[m
+ resources/fonts/fontawesome/js/brands.js           |   536 [32m+[m
+ resources/fonts/fontawesome/js/brands.min.js       |     1 [32m+[m
+ resources/fonts/fontawesome/js/fontawesome.js      |  1997 [32m+++[m
+ resources/fonts/fontawesome/js/fontawesome.min.js  |     1 [32m+[m
+ resources/fonts/fontawesome/js/regular.js          |   273 [32m+[m
+ resources/fonts/fontawesome/js/regular.min.js      |     1 [32m+[m
+ resources/fonts/fontawesome/js/solid.js            |  1037 [32m++[m
+ resources/fonts/fontawesome/js/solid.min.js        |     1 [32m+[m
+ resources/fonts/fontawesome/js/v4-shims.js         |    64 [32m+[m
+ resources/fonts/fontawesome/js/v4-shims.min.js     |     1 [32m+[m
+ .../fonts/fontawesome/webfonts/fa-brands-400.eot   |   Bin [31m0[m -> [32m134396[m bytes
+ .../fonts/fontawesome/webfonts/fa-brands-400.svg   |  1260 [32m++[m
+ .../fonts/fontawesome/webfonts/fa-brands-400.ttf   |   Bin [31m0[m -> [32m134160[m bytes
+ .../fonts/fontawesome/webfonts/fa-brands-400.woff  |   Bin [31m0[m -> [32m87048[m bytes
+ .../fonts/fontawesome/webfonts/fa-brands-400.woff2 |   Bin [31m0[m -> [32m74288[m bytes
+ .../fonts/fontawesome/webfonts/fa-regular-400.eot  |   Bin [31m0[m -> [32m40308[m bytes
+ .../fonts/fontawesome/webfonts/fa-regular-400.svg  |   471 [32m+[m
+ .../fonts/fontawesome/webfonts/fa-regular-400.ttf  |   Bin [31m0[m -> [32m40080[m bytes
+ .../fonts/fontawesome/webfonts/fa-regular-400.woff |   Bin [31m0[m -> [32m18164[m bytes
+ .../fontawesome/webfonts/fa-regular-400.woff2      |   Bin [31m0[m -> [32m14872[m bytes
+ .../fonts/fontawesome/webfonts/fa-solid-900.eot    |   Bin [31m0[m -> [32m209012[m bytes
+ .../fonts/fontawesome/webfonts/fa-solid-900.svg    |  2763 [32m++++[m
+ .../fonts/fontawesome/webfonts/fa-solid-900.ttf    |   Bin [31m0[m -> [32m208792[m bytes
+ .../fonts/fontawesome/webfonts/fa-solid-900.woff   |   Bin [31m0[m -> [32m102224[m bytes
+ .../fonts/fontawesome/webfonts/fa-solid-900.woff2  |   Bin [31m0[m -> [32m79100[m bytes
+ resources/fonts/material-design-icons/LICENSE.txt  |   428 [32m+[m
+ .../MaterialIcons-Regular.eot                      |   Bin [31m0[m -> [32m143258[m bytes
+ .../MaterialIcons-Regular.svg                      |  2373 [32m+++[m
+ .../MaterialIcons-Regular.ttf                      |   Bin [31m0[m -> [32m128180[m bytes
+ .../MaterialIcons-Regular.woff                     |   Bin [31m0[m -> [32m57620[m bytes
+ .../MaterialIcons-Regular.woff2                    |   Bin [31m0[m -> [32m44300[m bytes
+ resources/images/avatar/avatar-1.png               |   Bin [31m0[m -> [32m64130[m bytes
+ resources/images/avatar/avatar-10.png              |   Bin [31m0[m -> [32m72655[m bytes
+ resources/images/avatar/avatar-11.png              |   Bin [31m0[m -> [32m73074[m bytes
+ resources/images/avatar/avatar-12.png              |   Bin [31m0[m -> [32m64921[m bytes
+ resources/images/avatar/avatar-13.png              |   Bin [31m0[m -> [32m90385[m bytes
+ resources/images/avatar/avatar-14.png              |   Bin [31m0[m -> [32m63642[m bytes
+ resources/images/avatar/avatar-15.png              |   Bin [31m0[m -> [32m72957[m bytes
+ resources/images/avatar/avatar-16.png              |   Bin [31m0[m -> [32m66688[m bytes
+ resources/images/avatar/avatar-17.png              |   Bin [31m0[m -> [32m57567[m bytes
+ resources/images/avatar/avatar-2.png               |   Bin [31m0[m -> [32m81691[m bytes
+ resources/images/avatar/avatar-3.png               |   Bin [31m0[m -> [32m66920[m bytes
+ resources/images/avatar/avatar-4.png               |   Bin [31m0[m -> [32m67675[m bytes
+ resources/images/avatar/avatar-5.png               |   Bin [31m0[m -> [32m96122[m bytes
+ resources/images/avatar/avatar-6.png               |   Bin [31m0[m -> [32m88245[m bytes
+ resources/images/avatar/avatar-7.png               |   Bin [31m0[m -> [32m66720[m bytes
+ resources/images/avatar/avatar-8.png               |   Bin [31m0[m -> [32m77940[m bytes
+ resources/images/avatar/avatar-9.png               |   Bin [31m0[m -> [32m71663[m bytes
+ resources/images/cards/applewatch.png              |   Bin [31m0[m -> [32m53015[m bytes
+ resources/images/cards/camara.png                  |   Bin [31m0[m -> [32m28515[m bytes
+ resources/images/cards/cameras.png                 |   Bin [31m0[m -> [32m214364[m bytes
+ resources/images/cards/headphone.png               |   Bin [31m0[m -> [32m95857[m bytes
+ resources/images/cards/headphones-2.png            |   Bin [31m0[m -> [32m70520[m bytes
+ resources/images/cards/headphones.png              |   Bin [31m0[m -> [32m26577[m bytes
+ resources/images/cards/horizontal-news-1.jpg       |   Bin [31m0[m -> [32m165473[m bytes
+ resources/images/cards/horizontal-news-2.jpg       |   Bin [31m0[m -> [32m61393[m bytes
+ resources/images/cards/horizontal-news-3.jpg       |   Bin [31m0[m -> [32m93743[m bytes
+ resources/images/cards/ipad.png                    |   Bin [31m0[m -> [32m12899[m bytes
+ resources/images/cards/iphone-8.png                |   Bin [31m0[m -> [32m15148[m bytes
+ resources/images/cards/iphone-x.png                |   Bin [31m0[m -> [32m64836[m bytes
+ resources/images/cards/iphone.png                  |   Bin [31m0[m -> [32m62391[m bytes
+ resources/images/cards/iphonec.png                 |   Bin [31m0[m -> [32m37073[m bytes
+ resources/images/cards/macbook.png                 |   Bin [31m0[m -> [32m61673[m bytes
+ resources/images/cards/magic-mouse.png             |   Bin [31m0[m -> [32m50119[m bytes
+ resources/images/cards/news-apple.jpg              |   Bin [31m0[m -> [32m41617[m bytes
+ resources/images/cards/news-fashion.jpg            |   Bin [31m0[m -> [32m26988[m bytes
+ resources/images/cards/news-twitter.jpg            |   Bin [31m0[m -> [32m39188[m bytes
+ resources/images/cards/nike.png                    |   Bin [31m0[m -> [32m22528[m bytes
+ resources/images/cards/oneplus-6t.png              |   Bin [31m0[m -> [32m43814[m bytes
+ resources/images/cards/powerbank.png               |   Bin [31m0[m -> [32m104762[m bytes
+ resources/images/cards/puma.png                    |   Bin [31m0[m -> [32m21351[m bytes
+ resources/images/cards/reebok.png                  |   Bin [31m0[m -> [32m24875[m bytes
+ resources/images/cards/remote.png                  |   Bin [31m0[m -> [32m64723[m bytes
+ resources/images/cards/shoes.png                   |   Bin [31m0[m -> [32m22194[m bytes
+ resources/images/cards/smartspeakers.png           |   Bin [31m0[m -> [32m86240[m bytes
+ resources/images/cards/speakers.png                |   Bin [31m0[m -> [32m47004[m bytes
+ resources/images/cards/watch-2.png                 |   Bin [31m0[m -> [32m81136[m bytes
+ resources/images/cards/watch.png                   |   Bin [31m0[m -> [32m22997[m bytes
+ .../images/favicon/Oapple-touch-icon-152x152.png   |   Bin [31m0[m -> [32m8022[m bytes
+ resources/images/favicon/Ofavicon-32x32.png        |   Bin [31m0[m -> [32m2454[m bytes
+ resources/images/favicon/Omstile-144x144.png       |   Bin [31m0[m -> [32m7267[m bytes
+ .../images/favicon/apple-touch-icon-152x152.png    |   Bin [31m0[m -> [32m16917[m bytes
+ resources/images/favicon/favicon-32x32.png         |   Bin [31m0[m -> [32m3278[m bytes
+ resources/images/favicon/mstile-144x144.png        |   Bin [31m0[m -> [32m15890[m bytes
+ resources/images/gallery/1.png                     |   Bin [31m0[m -> [32m59019[m bytes
+ resources/images/gallery/10.png                    |   Bin [31m0[m -> [32m65798[m bytes
+ resources/images/gallery/11.png                    |   Bin [31m0[m -> [32m47341[m bytes
+ resources/images/gallery/12.png                    |   Bin [31m0[m -> [32m79744[m bytes
+ resources/images/gallery/13.png                    |   Bin [31m0[m -> [32m69358[m bytes
+ resources/images/gallery/14.png                    |   Bin [31m0[m -> [32m46927[m bytes
+ resources/images/gallery/15.png                    |   Bin [31m0[m -> [32m63519[m bytes
+ resources/images/gallery/16.png                    |   Bin [31m0[m -> [32m24088[m bytes
+ resources/images/gallery/17.png                    |   Bin [31m0[m -> [32m26139[m bytes
+ resources/images/gallery/18.png                    |   Bin [31m0[m -> [32m78959[m bytes
+ resources/images/gallery/19.png                    |   Bin [31m0[m -> [32m52676[m bytes
+ resources/images/gallery/2.png                     |   Bin [31m0[m -> [32m61874[m bytes
+ resources/images/gallery/20.png                    |   Bin [31m0[m -> [32m71022[m bytes
+ resources/images/gallery/21.png                    |   Bin [31m0[m -> [32m76167[m bytes
+ resources/images/gallery/22.png                    |   Bin [31m0[m -> [32m50629[m bytes
+ resources/images/gallery/23.png                    |   Bin [31m0[m -> [32m36587[m bytes
+ resources/images/gallery/24.png                    |   Bin [31m0[m -> [32m35576[m bytes
+ resources/images/gallery/25.png                    |   Bin [31m0[m -> [32m74309[m bytes
+ resources/images/gallery/26.png                    |   Bin [31m0[m -> [32m46734[m bytes
+ resources/images/gallery/27.png                    |   Bin [31m0[m -> [32m36223[m bytes
+ resources/images/gallery/28.png                    |   Bin [31m0[m -> [32m174998[m bytes
+ resources/images/gallery/29.png                    |   Bin [31m0[m -> [32m172448[m bytes
+ resources/images/gallery/3.png                     |   Bin [31m0[m -> [32m82288[m bytes
+ resources/images/gallery/30.png                    |   Bin [31m0[m -> [32m144357[m bytes
+ resources/images/gallery/31.png                    |   Bin [31m0[m -> [32m123513[m bytes
+ resources/images/gallery/32.png                    |   Bin [31m0[m -> [32m105381[m bytes
+ resources/images/gallery/33.png                    |   Bin [31m0[m -> [32m108138[m bytes
+ resources/images/gallery/34.png                    |   Bin [31m0[m -> [32m221217[m bytes
+ resources/images/gallery/35.png                    |   Bin [31m0[m -> [32m34604[m bytes
+ resources/images/gallery/36.png                    |   Bin [31m0[m -> [32m86245[m bytes
+ resources/images/gallery/37.png                    |   Bin [31m0[m -> [32m71737[m bytes
+ resources/images/gallery/38.png                    |   Bin [31m0[m -> [32m63296[m bytes
+ resources/images/gallery/39.png                    |   Bin [31m0[m -> [32m62484[m bytes
+ resources/images/gallery/4.png                     |   Bin [31m0[m -> [32m34439[m bytes
+ resources/images/gallery/40.png                    |   Bin [31m0[m -> [32m95405[m bytes
+ resources/images/gallery/404-bg.jpg                |   Bin [31m0[m -> [32m41405[m bytes
+ resources/images/gallery/41.png                    |   Bin [31m0[m -> [32m96258[m bytes
+ resources/images/gallery/42.png                    |   Bin [31m0[m -> [32m66427[m bytes
+ resources/images/gallery/43.png                    |   Bin [31m0[m -> [32m68863[m bytes
+ resources/images/gallery/44.jpg                    |   Bin [31m0[m -> [32m280277[m bytes
+ resources/images/gallery/45.jpg                    |   Bin [31m0[m -> [32m208864[m bytes
+ resources/images/gallery/46.jpg                    |   Bin [31m0[m -> [32m70197[m bytes
+ resources/images/gallery/47.jpg                    |   Bin [31m0[m -> [32m66075[m bytes
+ resources/images/gallery/48.jpg                    |   Bin [31m0[m -> [32m63958[m bytes
+ resources/images/gallery/5.png                     |   Bin [31m0[m -> [32m27537[m bytes
+ resources/images/gallery/6.png                     |   Bin [31m0[m -> [32m62789[m bytes
+ resources/images/gallery/7.png                     |   Bin [31m0[m -> [32m28488[m bytes
+ resources/images/gallery/8.png                     |   Bin [31m0[m -> [32m40371[m bytes
+ resources/images/gallery/9.png                     |   Bin [31m0[m -> [32m74626[m bytes
+ resources/images/gallery/Intro-footer.png          |   Bin [31m0[m -> [32m21326[m bytes
+ resources/images/gallery/breadcrumb-bg.jpg         |   Bin [31m0[m -> [32m94143[m bytes
+ resources/images/gallery/chat-bg.jpg               |   Bin [31m0[m -> [32m19641[m bytes
+ resources/images/gallery/error-2.png               |   Bin [31m0[m -> [32m90684[m bytes
+ resources/images/gallery/error.jpg                 |   Bin [31m0[m -> [32m90684[m bytes
+ resources/images/gallery/error.png                 |   Bin [31m0[m -> [32m121124[m bytes
+ resources/images/gallery/faq-search.jpg            |   Bin [31m0[m -> [32m144882[m bytes
+ resources/images/gallery/flat-bg.jpg               |   Bin [31m0[m -> [32m123840[m bytes
+ resources/images/gallery/intro-app.png             |   Bin [31m0[m -> [32m52473[m bytes
+ resources/images/gallery/intro-features.png        |   Bin [31m0[m -> [32m71587[m bytes
+ resources/images/gallery/intro-slide-1.png         |   Bin [31m0[m -> [32m36176[m bytes
+ resources/images/gallery/maintenance.png           |   Bin [31m0[m -> [32m33513[m bytes
+ resources/images/gallery/pixinvent-logo.png        |   Bin [31m0[m -> [32m6793[m bytes
+ resources/images/gallery/post-1.png                |   Bin [31m0[m -> [32m129198[m bytes
+ resources/images/gallery/post-2.png                |   Bin [31m0[m -> [32m139236[m bytes
+ resources/images/gallery/post-3.png                |   Bin [31m0[m -> [32m181092[m bytes
+ resources/images/gallery/profile-bg.png            |   Bin [31m0[m -> [32m391211[m bytes
+ resources/images/gallery/search.jpg                |   Bin [31m0[m -> [32m20061[m bytes
+ resources/images/gallery/wave.png                  |   Bin [31m0[m -> [32m17430[m bytes
+ resources/images/gallery/web-search-1.jpg          |   Bin [31m0[m -> [32m27558[m bytes
+ resources/images/gallery/web-search.jpg            |   Bin [31m0[m -> [32m52781[m bytes
+ resources/images/icon/apple-watch.png              |   Bin [31m0[m -> [32m16676[m bytes
+ resources/images/icon/bowling.png                  |   Bin [31m0[m -> [32m18675[m bytes
+ resources/images/icon/cup.png                      |   Bin [31m0[m -> [32m29799[m bytes
+ resources/images/icon/doc-image.png                |   Bin [31m0[m -> [32m2622[m bytes
+ resources/images/icon/doc.png                      |   Bin [31m0[m -> [32m2509[m bytes
+ resources/images/icon/football.png                 |   Bin [31m0[m -> [32m25915[m bytes
+ resources/images/icon/fs.png                       |   Bin [31m0[m -> [32m6782[m bytes
+ resources/images/icon/google.png                   |   Bin [31m0[m -> [32m8810[m bytes
+ resources/images/icon/jpg-image.png                |   Bin [31m0[m -> [32m2536[m bytes
+ resources/images/icon/laptop.png                   |   Bin [31m0[m -> [32m14790[m bytes
+ resources/images/icon/map-marker.png               |   Bin [31m0[m -> [32m1118[m bytes
+ resources/images/icon/nike.png                     |   Bin [31m0[m -> [32m5052[m bytes
+ resources/images/icon/one-plus.png                 |   Bin [31m0[m -> [32m4915[m bytes
+ resources/images/icon/pdf-image.png                |   Bin [31m0[m -> [32m2361[m bytes
+ resources/images/icon/pdf.png                      |   Bin [31m0[m -> [32m2496[m bytes
+ resources/images/icon/printer.png                  |   Bin [31m0[m -> [32m7892[m bytes
+ resources/images/icon/psd.png                      |   Bin [31m0[m -> [32m2450[m bytes
+ resources/images/icon/puma.png                     |   Bin [31m0[m -> [32m4980[m bytes
+ resources/images/icon/sketch-mac-icon.png          |   Bin [31m0[m -> [32m8202[m bytes
+ resources/images/icon/sketch.png                   |   Bin [31m0[m -> [32m2406[m bytes
+ resources/images/icon/xls-image.png                |   Bin [31m0[m -> [32m2420[m bytes
+ resources/images/logo/generic-logo.png             |   Bin [31m0[m -> [32m6746[m bytes
+ resources/images/logo/login-logo.png               |   Bin [31m0[m -> [32m4615[m bytes
+ resources/images/logo/materialize-logo-big.png     |   Bin [31m0[m -> [32m12312[m bytes
+ resources/images/logo/materialize-logo-color.png   |   Bin [31m0[m -> [32m7226[m bytes
+ resources/images/logo/materialize-logo.png         |   Bin [31m0[m -> [32m5067[m bytes
+ resources/images/misch/signature-scan.png          |   Bin [31m0[m -> [32m5996[m bytes
+ resources/images/misch/style-typography.png        |   Bin [31m0[m -> [32m131722[m bytes
+ resources/images/user/1.jpg                        |   Bin [31m0[m -> [32m27065[m bytes
+ resources/images/user/10.jpg                       |   Bin [31m0[m -> [32m33348[m bytes
+ resources/images/user/11.jpg                       |   Bin [31m0[m -> [32m36241[m bytes
+ resources/images/user/12.jpg                       |   Bin [31m0[m -> [32m25604[m bytes
+ resources/images/user/2.jpg                        |   Bin [31m0[m -> [32m45516[m bytes
+ resources/images/user/3.jpg                        |   Bin [31m0[m -> [32m32627[m bytes
+ resources/images/user/4.jpg                        |   Bin [31m0[m -> [32m26873[m bytes
+ resources/images/user/5.jpg                        |   Bin [31m0[m -> [32m47780[m bytes
+ resources/images/user/6.jpg                        |   Bin [31m0[m -> [32m36792[m bytes
+ resources/images/user/7.jpg                        |   Bin [31m0[m -> [32m39264[m bytes
+ resources/images/user/8.jpg                        |   Bin [31m0[m -> [32m41745[m bytes
+ resources/images/user/9.jpg                        |   Bin [31m0[m -> [32m25197[m bytes
+ resources/js/custom/custom-script.js               |    11 [32m+[m
+ resources/js/custom/custom-script.min.js           |     0
+ resources/js/materialize.js                        | 12360 [32m+++++++++++++++[m
+ resources/js/plugins.js                            |   591 [32m+[m
+ resources/js/scripts/advance-ui-carousel.js        |    16 [32m+[m
+ resources/js/scripts/advance-ui-collapsibles.js    |    10 [32m+[m
+ .../js/scripts/advance-ui-feature-discovery.js     |     6 [32m+[m
+ resources/js/scripts/advance-ui-media.js           |     9 [32m+[m
+ resources/js/scripts/advance-ui-modals.js          |     8 [32m+[m
+ resources/js/scripts/advance-ui-scrollspy.js       |    18 [32m+[m
+ resources/js/scripts/advance-ui-toasts.js          |    38 [32m+[m
+ resources/js/scripts/app-calendar.js               |   163 [32m+[m
+ resources/js/scripts/app-chat.js                   |   113 [32m+[m
+ resources/js/scripts/app-contacts.js               |   219 [32m+[m
+ resources/js/scripts/app-email-content.js          |   115 [32m+[m
+ resources/js/scripts/app-email.js                  |   189 [32m+[m
+ resources/js/scripts/app-file-manager.js           |    91 [32m+[m
+ resources/js/scripts/app-invoice.js                |   142 [32m+[m
+ resources/js/scripts/app-kanban.js                 |   408 [32m+[m
+ resources/js/scripts/app-todo.js                   |   290 [32m+[m
+ resources/js/scripts/card-advanced.js              |   475 [32m+[m
+ resources/js/scripts/cards-extended.js             |   146 [32m+[m
+ resources/js/scripts/charts-chartist.js            |   258 [32m+[m
+ resources/js/scripts/charts-chartjs.js             |   420 [32m+[m
+ resources/js/scripts/charts-sparklines.js          |   222 [32m+[m
+ resources/js/scripts/css-animation.js              |    22 [32m+[m
+ resources/js/scripts/css-grid.js                   |    19 [32m+[m
+ resources/js/scripts/css-transition.js             |    12 [32m+[m
+ resources/js/scripts/css-typography.js             |    13 [32m+[m
+ resources/js/scripts/customizer.js                 |   234 [32m+[m
+ resources/js/scripts/dashboard-analytics.js        |   487 [32m+[m
+ resources/js/scripts/dashboard-ecommerce.js        |   433 [32m+[m
+ resources/js/scripts/dashboard-modern.js           |   415 [32m+[m
+ resources/js/scripts/data-tables.js                |   143 [32m+[m
+ resources/js/scripts/eCommerce-products-page.js    |    22 [32m+[m
+ resources/js/scripts/extra-components-i18n.js      |    57 [32m+[m
+ resources/js/scripts/extra-components-nestable.js  |    46 [32m+[m
+ .../js/scripts/extra-components-range-slider.js    |    66 [32m+[m
+ resources/js/scripts/extra-components-ratings.js   |    41 [32m+[m
+ .../js/scripts/extra-components-sweetalert.js      |   180 [32m+[m
+ resources/js/scripts/extra-components-tour.js      |   128 [32m+[m
+ resources/js/scripts/extra-components-treeview.js  |    76 [32m+[m
+ resources/js/scripts/form-editor.js                |    93 [32m+[m
+ resources/js/scripts/form-elements.js              |    48 [32m+[m
+ resources/js/scripts/form-file-uploads.js          |    25 [32m+[m
+ resources/js/scripts/form-masks.js                 |    56 [32m+[m
+ resources/js/scripts/form-select2.js               |   194 [32m+[m
+ resources/js/scripts/form-validation.js            |    65 [32m+[m
+ resources/js/scripts/form-wizard.js                |    68 [32m+[m
+ resources/js/scripts/fullcalendar-script.js        |   102 [32m+[m
+ resources/js/scripts/fullscreen-slider.js          |     5 [32m+[m
+ resources/js/scripts/google-map-script.js          |    53 [32m+[m
+ resources/js/scripts/intro.js                      |    52 [32m+[m
+ resources/js/scripts/media-gallery-page.js         |    31 [32m+[m
+ resources/js/scripts/media-hover-effects.js        |    39 [32m+[m
+ resources/js/scripts/page-account-settings.js      |   114 [32m+[m
+ resources/js/scripts/page-contact.js               |    40 [32m+[m
+ resources/js/scripts/page-item.js                  |    12 [32m+[m
+ resources/js/scripts/page-knowledge.js             |    12 [32m+[m
+ resources/js/scripts/page-profile.js               |    27 [32m+[m
+ resources/js/scripts/page-users.js                 |   121 [32m+[m
+ resources/js/scripts/ui-alerts.js                  |     9 [32m+[m
+ resources/js/scripts/ui-chips.js                   |    27 [32m+[m
+ resources/js/scripts/ui-navbar.js                  |     7 [32m+[m
+ resources/js/search.js                             |   248 [32m+[m
+ resources/js/vendors.min.js                        |    42 [32m+[m
+ resources/json/horizontalMenu.json                 |   754 [32m+[m
+ resources/json/template-list.json                  |     0
+ resources/json/verticalMenu.json                   |    40 [32m+[m
+ resources/lang/de/locale.php                       |   139 [32m+[m
+ resources/lang/en/auth.php                         |    19 [32m+[m
+ resources/lang/en/locale.php                       |   138 [32m+[m
+ resources/lang/en/pagination.php                   |    19 [32m+[m
+ resources/lang/en/passwords.php                    |    22 [32m+[m
+ resources/lang/en/validation.php                   |   151 [32m+[m
+ resources/lang/fr/locale.php                       |   138 [32m+[m
+ resources/lang/pt/locale.php                       |   138 [32m+[m
+ resources/sass/components/_badges.scss             |    55 [32m+[m
+ resources/sass/components/_buttons.scss            |   322 [32m+[m
+ resources/sass/components/_cards.scss              |   195 [32m+[m
+ resources/sass/components/_carousel.scss           |    90 [32m+[m
+ resources/sass/components/_chips.scss              |    90 [32m+[m
+ resources/sass/components/_collapsible.scss        |    91 [32m+[m
+ resources/sass/components/_color-classes.scss      |    32 [32m+[m
+ resources/sass/components/_color-variables.scss    |   372 [32m+[m
+ resources/sass/components/_datepicker.scss         |   191 [32m+[m
+ resources/sass/components/_dropdown.scss           |    85 [32m+[m
+ resources/sass/components/_global.scss             |   771 [32m+[m
+ resources/sass/components/_grid.scss               |   156 [32m+[m
+ .../sass/components/_icons-material-design.scss    |     5 [32m+[m
+ resources/sass/components/_materialbox.scss        |    43 [32m+[m
+ resources/sass/components/_modal.scss              |    94 [32m+[m
+ resources/sass/components/_navbar.scss             |   219 [32m+[m
+ resources/sass/components/_normalize.scss          |   447 [32m+[m
+ resources/sass/components/_preloader.scss          |   334 [32m+[m
+ resources/sass/components/_pulse.scss              |    34 [32m+[m
+ resources/sass/components/_sidenav.scss            |   235 [32m+[m
+ resources/sass/components/_slider.scss             |    92 [32m+[m
+ resources/sass/components/_table_of_contents.scss  |    33 [32m+[m
+ resources/sass/components/_tabs.scss               |    99 [32m+[m
+ resources/sass/components/_tapTarget.scss          |   103 [32m+[m
+ resources/sass/components/_timepicker.scss         |   183 [32m+[m
+ resources/sass/components/_toast.scss              |    58 [32m+[m
+ resources/sass/components/_tooltip.scss            |    32 [32m+[m
+ resources/sass/components/_transitions.scss        |    13 [32m+[m
+ resources/sass/components/_typography.scss         |    60 [32m+[m
+ resources/sass/components/_variables.scss          |   339 [32m+[m
+ resources/sass/components/_waves.scss              |   114 [32m+[m
+ resources/sass/components/forms/_checkboxes.scss   |   200 [32m+[m
+ resources/sass/components/forms/_file-input.scss   |    44 [32m+[m
+ resources/sass/components/forms/_forms.scss        |    22 [32m+[m
+ resources/sass/components/forms/_input-fields.scss |   354 [32m+[m
+ .../sass/components/forms/_radio-buttons.scss      |   115 [32m+[m
+ resources/sass/components/forms/_range.scss        |   161 [32m+[m
+ resources/sass/components/forms/_select.scss       |   180 [32m+[m
+ resources/sass/components/forms/_switches.scss     |    89 [32m+[m
+ resources/sass/custom/custom.scss                  |    11 [32m+[m
+ resources/sass/laravel-custom.scss                 |    10 [32m+[m
+ resources/sass/layouts/style-horizontal.scss       |   191 [32m+[m
+ resources/sass/pages/advance-ui-media.scss         |     9 [32m+[m
+ resources/sass/pages/app-calendar.scss             |    51 [32m+[m
+ resources/sass/pages/app-chat.scss                 |   618 [32m+[m
+ resources/sass/pages/app-contacts.scss             |   369 [32m+[m
+ resources/sass/pages/app-email-content.scss        |   315 [32m+[m
+ resources/sass/pages/app-email.scss                |   401 [32m+[m
+ resources/sass/pages/app-file-manager.scss         |   295 [32m+[m
+ resources/sass/pages/app-invoice.scss              |   386 [32m+[m
+ resources/sass/pages/app-kanban.scss               |   280 [32m+[m
+ resources/sass/pages/app-sidebar.scss              |   229 [32m+[m
+ resources/sass/pages/app-todo.scss                 |   404 [32m+[m
+ resources/sass/pages/badges.scss                   |    11 [32m+[m
+ resources/sass/pages/cards-basic.scss              |    11 [32m+[m
+ resources/sass/pages/charts-chartist.scss          |     7 [32m+[m
+ resources/sass/pages/charts-sparkline.scss         |    16 [32m+[m
+ resources/sass/pages/component-navbar.scss         |    39 [32m+[m
+ resources/sass/pages/contacts.scss                 |    33 [32m+[m
+ resources/sass/pages/css-media.scss                |    32 [32m+[m
+ resources/sass/pages/dashboard-modern.scss         |   257 [32m+[m
+ resources/sass/pages/dashboard.scss                |    40 [32m+[m
+ resources/sass/pages/data-tables.scss              |   181 [32m+[m
+ resources/sass/pages/eCommerce-products-page.scss  |   186 [32m+[m
+ resources/sass/pages/error.scss                    |    14 [32m+[m
+ resources/sass/pages/extra-components-tour.scss    |    25 [32m+[m
+ .../sass/pages/extra-components-treeview.scss      |    10 [32m+[m
+ resources/sass/pages/forgot.scss                   |    22 [32m+[m
+ resources/sass/pages/form-select2.scss             |    35 [32m+[m
+ resources/sass/pages/form-wizard.scss              |    52 [32m+[m
+ resources/sass/pages/gallery.scss                  |    14 [32m+[m
+ resources/sass/pages/icon.scss                     |    30 [32m+[m
+ resources/sass/pages/intro.scss                    |   209 [32m+[m
+ resources/sass/pages/lock.scss                     |    23 [32m+[m
+ resources/sass/pages/login.scss                    |    24 [32m+[m
+ resources/sass/pages/map.scss                      |    46 [32m+[m
+ resources/sass/pages/page-404.scss                 |    57 [32m+[m
+ resources/sass/pages/page-500.scss                 |    59 [32m+[m
+ resources/sass/pages/page-account-settings.scss    |    92 [32m+[m
+ resources/sass/pages/page-blog.scss                |    78 [32m+[m
+ resources/sass/pages/page-contact.scss             |   185 [32m+[m
+ resources/sass/pages/page-faq.scss                 |   122 [32m+[m
+ resources/sass/pages/page-knowledge.scss           |   128 [32m+[m
+ resources/sass/pages/page-maintenance.scss         |    33 [32m+[m
+ resources/sass/pages/page-search.scss              |    72 [32m+[m
+ resources/sass/pages/page-timeline.scss            |   162 [32m+[m
+ resources/sass/pages/page-users.scss               |   175 [32m+[m
+ resources/sass/pages/pricing.scss                  |    93 [32m+[m
+ resources/sass/pages/product.scss                  |    23 [32m+[m
+ resources/sass/pages/profile.scss                  |    72 [32m+[m
+ resources/sass/pages/register.scss                 |    22 [32m+[m
+ resources/sass/pages/user-profile-page.scss        |    58 [32m+[m
+ resources/sass/pages/variables.scss                |    20 [32m+[m
+ resources/sass/pages/widget-timeline.scss          |    77 [32m+[m
+ resources/sass/style-rtl.scss                      |   803 [32m+[m
+ resources/sass/theme-components/_avatar.scss       |   180 [32m+[m
+ resources/sass/theme-components/_badges.scss       |    25 [32m+[m
+ resources/sass/theme-components/_breadcrumb.scss   |   121 [32m+[m
+ resources/sass/theme-components/_buttons.scss      |    14 [32m+[m
+ resources/sass/theme-components/_calendar.scss     |    46 [32m+[m
+ resources/sass/theme-components/_card.scss         |   429 [32m+[m
+ resources/sass/theme-components/_chart.scss        |   198 [32m+[m
+ resources/sass/theme-components/_color.scss        |   277 [32m+[m
+ .../sass/theme-components/_custom-animations.scss  |    79 [32m+[m
+ resources/sass/theme-components/_dropdown.scss     |    27 [32m+[m
+ resources/sass/theme-components/_footer.scss       |    42 [32m+[m
+ resources/sass/theme-components/_forms.scss        |   106 [32m+[m
+ resources/sass/theme-components/_global.scss       |   148 [32m+[m
+ resources/sass/theme-components/_grid.scss         |    13 [32m+[m
+ resources/sass/theme-components/_helper.scss       |   660 [32m+[m
+ resources/sass/theme-components/_icons.scss        |    72 [32m+[m
+ .../sass/theme-components/_miscellaneous.scss      |   244 [32m+[m
+ resources/sass/theme-components/_modal.scss        |    20 [32m+[m
+ resources/sass/theme-components/_navbar.scss       |   383 [32m+[m
+ resources/sass/theme-components/_pulse.scss        |     9 [32m+[m
+ resources/sass/theme-components/_sidenav.scss      |   570 [32m+[m
+ resources/sass/theme-components/_slideout.scss     |   330 [32m+[m
+ resources/sass/theme-components/_table.scss        |    34 [32m+[m
+ .../sass/theme-components/_theme-variables.scss    |    26 [32m+[m
+ resources/sass/theme-components/_typography.scss   |   156 [32m+[m
+ resources/sass/theme-components/customizer.scss    |   104 [32m+[m
+ .../horizontal-menu-template/_theme-variables.scss |     5 [32m+[m
+ .../themes/horizontal-menu-template/_theme.scss    |   107 [32m+[m
+ .../horizontal-menu-template/_variables.scss       |    43 [32m+[m
+ .../horizontal-menu-template/materialize.scss      |    50 [32m+[m
+ .../themes/horizontal-menu-template/style.scss     |    51 [32m+[m
+ .../sample-theme-starter/_theme-variables.scss     |    17 [32m+[m
+ .../sass/themes/sample-theme-starter/_theme.scss   |    15 [32m+[m
+ .../themes/sample-theme-starter/_variables.scss    |    44 [32m+[m
+ .../themes/sample-theme-starter/materialize.scss   |    50 [32m+[m
+ .../sass/themes/sample-theme-starter/style.scss    |    51 [32m+[m
+ .../_theme-variables.scss                          |    17 [32m+[m
+ .../themes/vertical-dark-menu-template/_theme.scss |    32 [32m+[m
+ .../vertical-dark-menu-template/_variables.scss    |    43 [32m+[m
+ .../vertical-dark-menu-template/materialize.scss   |    50 [32m+[m
+ .../themes/vertical-dark-menu-template/style.scss  |    51 [32m+[m
+ .../_theme-variables.scss                          |    17 [32m+[m
+ .../vertical-gradient-menu-template/_theme.scss    |    28 [32m+[m
+ .../_variables.scss                                |    43 [32m+[m
+ .../materialize.scss                               |    50 [32m+[m
+ .../vertical-gradient-menu-template/style.scss     |    51 [32m+[m
+ .../_theme-variables.scss                          |    18 [32m+[m
+ .../vertical-menu-nav-dark-template/_theme.scss    |    17 [32m+[m
+ .../_variables.scss                                |    44 [32m+[m
+ .../materialize.scss                               |    50 [32m+[m
+ .../vertical-menu-nav-dark-template/style.scss     |    51 [32m+[m
+ .../_theme-variables.scss                          |    17 [32m+[m
+ .../vertical-modern-menu-template/_theme.scss      |    18 [32m+[m
+ .../vertical-modern-menu-template/_variables.scss  |    44 [32m+[m
+ .../vertical-modern-menu-template/materialize.scss |    50 [32m+[m
+ .../vertical-modern-menu-template/style.scss       |    51 [32m+[m
+ resources/vendors/animate-css/animate.css          |  3625 [32m+++++[m
+ .../chartist-js/chartist-plugin-fill-donut.min.js  |     2 [32m+[m
+ .../chartist-js/chartist-plugin-tooltip.css        |    34 [32m+[m
+ .../vendors/chartist-js/chartist-plugin-tooltip.js |   206 [32m+[m
+ .../chartist-js/chartist-plugin-tooltip.min.js     |     8 [32m+[m
+ resources/vendors/chartist-js/chartist.css         |   615 [32m+[m
+ resources/vendors/chartist-js/chartist.css.map     |    10 [32m+[m
+ resources/vendors/chartist-js/chartist.js          |  4516 [32m++++++[m
+ resources/vendors/chartist-js/chartist.min.css     |     1 [32m+[m
+ resources/vendors/chartist-js/chartist.min.js      |    16 [32m+[m
+ resources/vendors/chartist-js/chartist.min.js.map  |     1 [32m+[m
+ resources/vendors/chartist-js/scss/chartist.scss   |   241 [32m+[m
+ .../scss/settings/_chartist-settings.scss          |    88 [32m+[m
+ resources/vendors/chartjs/chart.js                 |   123 [32m+[m
+ resources/vendors/chartjs/chart.min.js             |     7 [32m+[m
+ .../data-tables/css/dataTables.bootstrap4.css      |   206 [32m+[m
+ .../data-tables/css/dataTables.bootstrap4.min.css  |     1 [32m+[m
+ .../data-tables/css/dataTables.checkboxes.css      |    23 [32m+[m
+ .../data-tables/css/dataTables.material.css        |    87 [32m+[m
+ .../data-tables/css/dataTables.material.min.css    |     1 [32m+[m
+ .../vendors/data-tables/css/images/sort_asc.png    |   Bin [31m0[m -> [32m1084[m bytes
+ .../data-tables/css/images/sort_asc_disabled.png   |   Bin [31m0[m -> [32m1068[m bytes
+ .../vendors/data-tables/css/images/sort_both.png   |   Bin [31m0[m -> [32m1137[m bytes
+ .../vendors/data-tables/css/images/sort_desc.png   |   Bin [31m0[m -> [32m1069[m bytes
+ .../data-tables/css/images/sort_desc_disabled.png  |   Bin [31m0[m -> [32m1061[m bytes
+ .../vendors/data-tables/css/jquery.dataTables.css  |   461 [32m+[m
+ .../data-tables/css/jquery.dataTables.min.css      |     7 [32m+[m
+ .../data-tables/css/select.dataTables.min.css      |     8 [32m+[m
+ .../data-tables/extensions/responsive/License.txt  |    22 [32m+[m
+ .../data-tables/extensions/responsive/Readme.md    |    41 [32m+[m
+ .../responsive/css/responsive.dataTables.css       |   177 [32m+[m
+ .../responsive/css/responsive.dataTables.min.css   |     6 [32m+[m
+ .../responsive/js/dataTables.responsive.js         |  1393 [32m++[m
+ .../responsive/js/dataTables.responsive.min.js     |    30 [32m+[m
+ .../data-tables/js/dataTables.bootstrap4.js        |   185 [32m+[m
+ .../data-tables/js/dataTables.bootstrap4.min.js    |    11 [32m+[m
+ .../vendors/data-tables/js/dataTables.material.js  |   191 [32m+[m
+ .../data-tables/js/dataTables.material.min.js      |    11 [32m+[m
+ .../data-tables/js/dataTables.select.min.js        |    28 [32m+[m
+ .../data-tables/js/datatables.checkboxes.min.js    |     5 [32m+[m
+ .../vendors/data-tables/js/jquery.dataTables.js    | 15036 [32m+++++++++++++++++++[m
+ .../data-tables/js/jquery.dataTables.min.js        |   170 [32m+[m
+ resources/vendors/dropify/css/dropify.css          |   386 [32m+[m
+ resources/vendors/dropify/css/dropify.min.css      |     8 [32m+[m
+ resources/vendors/dropify/fonts/dropify.eot        |   Bin [31m0[m -> [32m5344[m bytes
+ resources/vendors/dropify/fonts/dropify.svg        |    13 [32m+[m
+ resources/vendors/dropify/fonts/dropify.ttf        |   Bin [31m0[m -> [32m5180[m bytes
+ resources/vendors/dropify/fonts/dropify.woff       |   Bin [31m0[m -> [32m3052[m bytes
+ resources/vendors/dropify/js/dropify.js            |   657 [32m+[m
+ resources/vendors/dropify/js/dropify.min.js        |    10 [32m+[m
+ resources/vendors/flag-icon/css/flag-icon.css      |  1562 [32m++[m
+ resources/vendors/flag-icon/css/flag-icon.min.css  |     1 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/ad.svg       |   148 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/ae.svg       |     6 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/af.svg       |    81 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/ag.svg       |    14 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/ai.svg       |   763 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/al.svg       |     5 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/am.svg       |     5 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/ao.svg       |    13 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/aq.svg       |     5 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/ar.svg       |    31 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/as.svg       |    33 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/at.svg       |     6 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/au.svg       |    11 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/aw.svg       |   186 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/ax.svg       |    18 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/az.svg       |     8 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/ba.svg       |    12 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/bb.svg       |     6 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/bd.svg       |     4 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/be.svg       |     7 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/bf.svg       |     7 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/bg.svg       |     7 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/bh.svg       |    11 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/bi.svg       |    15 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/bj.svg       |    14 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/bl.svg       |     7 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/bm.svg       |    98 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/bn.svg       |    36 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/bo.svg       |   678 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/bq.svg       |     5 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/br.svg       |    45 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/bs.svg       |    13 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/bt.svg       |    89 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/bv.svg       |    13 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/bw.svg       |     7 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/by.svg       |    22 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/bz.svg       |   145 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/ca.svg       |     4 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/cc.svg       |    19 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/cd.svg       |    12 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/cf.svg       |    15 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/cg.svg       |    12 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/ch.svg       |     9 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/ci.svg       |     7 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/ck.svg       |    11 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/cl.svg       |    13 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/cm.svg       |    15 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/cn.svg       |    11 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/co.svg       |     7 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/cr.svg       |     7 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/cu.svg       |    13 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/cv.svg       |    13 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/cw.svg       |    14 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/cx.svg       |    15 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/cy.svg       |     6 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/cz.svg       |    12 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/de.svg       |     5 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/dj.svg       |    13 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/dk.svg       |     5 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/dm.svg       |   152 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/do.svg       |  6745 [32m+++++++++[m
+ resources/vendors/flag-icon/flags/1x1/dz.svg       |     5 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/ec.svg       |   138 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/ee.svg       |     7 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/eg.svg       |    38 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/eh.svg       |    15 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/er.svg       |    13 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/es-ca.svg    |     4 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/es.svg       |   547 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/et.svg       |    14 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/eu.svg       |    28 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/fi.svg       |     5 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/fj.svg       |   125 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/fk.svg       |    93 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/fm.svg       |    11 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/fo.svg       |    12 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/fr.svg       |     7 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/ga.svg       |     7 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/gb-eng.svg   |     5 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/gb-nir.svg   |   131 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/gb-sct.svg   |     4 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/gb-wls.svg   |     9 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/gb.svg       |     7 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/gd.svg       |    27 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/ge.svg       |     6 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/gf.svg       |     7 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/gg.svg       |     9 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/gh.svg       |     6 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/gi.svg       |    32 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/gl.svg       |     4 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/gm.svg       |     9 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/gn.svg       |     7 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/gp.svg       |     7 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/gq.svg       |    23 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/gr.svg       |    16 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/gs.svg       |   206 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/gt.svg       |   204 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/gu.svg       |    39 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/gw.svg       |    15 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/gy.svg       |     9 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/hk.svg       |    30 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/hm.svg       |     9 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/hn.svg       |    18 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/hr.svg       |    56 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/ht.svg       |   116 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/hu.svg       |     7 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/id.svg       |     6 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/ie.svg       |     7 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/il.svg       |    14 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/im.svg       |    36 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/in.svg       |    25 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/io.svg       |   140 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/iq.svg       |    10 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/ir.svg       |   219 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/is.svg       |    12 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/it.svg       |     7 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/je.svg       |    29 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/jm.svg       |     8 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/jo.svg       |    16 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/jp.svg       |    11 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/ke.svg       |    23 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/kg.svg       |    15 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/kh.svg       |    61 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/ki.svg       |    36 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/km.svg       |    16 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/kn.svg       |    14 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/kp.svg       |    15 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/kr.svg       |    24 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/kw.svg       |    13 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/ky.svg       |    70 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/kz.svg       |    23 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/la.svg       |    12 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/lb.svg       |    15 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/lc.svg       |     8 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/li.svg       |    43 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/lk.svg       |    22 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/lr.svg       |    14 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/ls.svg       |     8 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/lt.svg       |     7 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/lu.svg       |     5 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/lv.svg       |     6 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/ly.svg       |    13 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/ma.svg       |     4 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/mc.svg       |     6 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/md.svg       |    71 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/me.svg       |   118 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/mf.svg       |     7 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/mg.svg       |     7 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/mh.svg       |     8 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/mk.svg       |     5 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/ml.svg       |     7 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/mm.svg       |    16 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/mn.svg       |    13 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/mo.svg       |     9 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/mp.svg       |    86 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/mq.svg       |     7 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/mr.svg       |     6 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/ms.svg       |    39 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/mt.svg       |    50 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/mu.svg       |     8 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/mv.svg       |     6 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/mw.svg       |    15 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/mx.svg       |   378 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/my.svg       |    15 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/mz.svg       |    21 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/na.svg       |    16 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/nc.svg       |    14 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/ne.svg       |     6 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/nf.svg       |    11 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/ng.svg       |     6 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/ni.svg       |   129 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/nl.svg       |     5 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/no.svg       |     7 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/np.svg       |    19 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/nr.svg       |    12 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/nu.svg       |    26 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/nz.svg       |    41 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/om.svg       |   115 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/pa.svg       |    13 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/pe.svg       |   244 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/pf.svg       |    18 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/pg.svg       |    16 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/ph.svg       |     9 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/pk.svg       |    15 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/pl.svg       |     6 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/pm.svg       |     7 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/pn.svg       |    67 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/pr.svg       |    13 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/ps.svg       |    15 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/pt.svg       |    57 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/pw.svg       |    11 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/py.svg       |   156 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/qa.svg       |     4 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/re.svg       |     7 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/ro.svg       |     7 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/rs.svg       |   296 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/ru.svg       |     7 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/rw.svg       |    13 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/sa.svg       |    26 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/sb.svg       |    13 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/sc.svg       |    14 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/sd.svg       |    13 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/se.svg       |    16 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/sg.svg       |    13 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/sh.svg       |    81 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/si.svg       |    18 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/sj.svg       |     7 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/sk.svg       |     9 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/sl.svg       |    12 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/sm.svg       |    89 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/sn.svg       |     8 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/so.svg       |    11 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/sr.svg       |     6 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/ss.svg       |     8 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/st.svg       |    16 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/sv.svg       |   599 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/sx.svg       |    56 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/sy.svg       |     6 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/sz.svg       |    45 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/tc.svg       |    74 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/td.svg       |     7 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/tf.svg       |    15 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/tg.svg       |    14 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/th.svg       |     7 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/tj.svg       |    26 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/tk.svg       |     5 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/tl.svg       |    13 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/tm.svg       |   203 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/tn.svg       |    13 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/to.svg       |    10 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/tr.svg       |     8 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/tt.svg       |     7 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/tv.svg       |    16 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/tw.svg       |    14 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/tz.svg       |    15 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/ua.svg       |     6 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/ug.svg       |    30 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/um.svg       |    15 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/un.svg       |    16 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/us.svg       |    10 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/uy.svg       |    28 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/uz.svg       |    30 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/va.svg       |   479 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/vc.svg       |     8 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/ve.svg       |    26 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/vg.svg       |   128 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/vi.svg       |    28 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/vn.svg       |    11 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/vu.svg       |    18 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/wf.svg       |     7 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/ws.svg       |     7 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/xk.svg       |    16 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/ye.svg       |     7 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/yt.svg       |     7 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/za.svg       |    17 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/zm.svg       |    27 [32m+[m
+ resources/vendors/flag-icon/flags/1x1/zw.svg       |    21 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/ad.svg       |   150 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/ae.svg       |     6 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/af.svg       |    81 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/ag.svg       |    14 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/ai.svg       |   763 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/al.svg       |     5 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/am.svg       |     5 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/ao.svg       |    13 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/aq.svg       |     5 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/ar.svg       |    31 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/as.svg       |    33 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/at.svg       |     6 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/au.svg       |     9 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/aw.svg       |   186 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/ax.svg       |    18 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/az.svg       |     8 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/ba.svg       |    12 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/bb.svg       |     6 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/bd.svg       |     4 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/be.svg       |     7 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/bf.svg       |     7 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/bg.svg       |     7 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/bh.svg       |    11 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/bi.svg       |    15 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/bj.svg       |    14 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/bl.svg       |     7 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/bm.svg       |    98 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/bn.svg       |    36 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/bo.svg       |   676 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/bq.svg       |     5 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/br.svg       |    45 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/bs.svg       |    13 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/bt.svg       |    89 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/bv.svg       |    13 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/bw.svg       |     7 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/by.svg       |    20 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/bz.svg       |   145 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/ca.svg       |     4 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/cc.svg       |    19 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/cd.svg       |     5 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/cf.svg       |    15 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/cg.svg       |    12 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/ch.svg       |     9 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/ci.svg       |     7 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/ck.svg       |     9 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/cl.svg       |    13 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/cm.svg       |    15 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/cn.svg       |    11 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/co.svg       |     7 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/cr.svg       |     7 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/cu.svg       |    13 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/cv.svg       |    13 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/cw.svg       |    14 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/cx.svg       |    15 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/cy.svg       |     6 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/cz.svg       |    12 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/de.svg       |     5 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/dj.svg       |    13 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/dk.svg       |     5 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/dm.svg       |   152 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/do.svg       |  6745 [32m+++++++++[m
+ resources/vendors/flag-icon/flags/4x3/dz.svg       |     5 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/ec.svg       |   138 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/ee.svg       |     7 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/eg.svg       |    38 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/eh.svg       |    15 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/er.svg       |     8 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/es-ca.svg    |     4 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/es.svg       |   544 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/et.svg       |    14 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/eu.svg       |    28 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/fi.svg       |     5 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/fj.svg       |   122 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/fk.svg       |    90 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/fm.svg       |    11 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/fo.svg       |    12 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/fr.svg       |     7 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/ga.svg       |     7 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/gb-eng.svg   |     5 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/gb-nir.svg   |   132 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/gb-sct.svg   |     4 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/gb-wls.svg   |     9 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/gb.svg       |     7 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/gd.svg       |    27 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/ge.svg       |     6 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/gf.svg       |     7 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/gg.svg       |     9 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/gh.svg       |     6 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/gi.svg       |    32 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/gl.svg       |     4 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/gm.svg       |    14 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/gn.svg       |     7 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/gp.svg       |     7 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/gq.svg       |    23 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/gr.svg       |    16 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/gs.svg       |   201 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/gt.svg       |   204 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/gu.svg       |    39 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/gw.svg       |    13 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/gy.svg       |     9 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/hk.svg       |    30 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/hm.svg       |     9 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/hn.svg       |    18 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/hr.svg       |    58 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/ht.svg       |   116 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/hu.svg       |     7 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/id.svg       |     6 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/ie.svg       |     7 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/il.svg       |    14 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/im.svg       |    36 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/in.svg       |    25 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/io.svg       |   138 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/iq.svg       |    10 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/ir.svg       |   219 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/is.svg       |    12 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/it.svg       |     7 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/je.svg       |    29 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/jm.svg       |     8 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/jo.svg       |    16 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/jp.svg       |    11 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/ke.svg       |    23 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/kg.svg       |    15 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/kh.svg       |    61 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/ki.svg       |    36 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/km.svg       |    16 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/kn.svg       |    14 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/kp.svg       |    15 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/kr.svg       |    24 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/kw.svg       |    13 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/ky.svg       |    63 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/kz.svg       |    23 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/la.svg       |    12 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/lb.svg       |    15 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/lc.svg       |     8 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/li.svg       |    43 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/lk.svg       |    22 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/lr.svg       |    14 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/ls.svg       |     8 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/lt.svg       |     7 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/lu.svg       |     5 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/lv.svg       |     6 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/ly.svg       |    13 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/ma.svg       |     4 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/mc.svg       |     6 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/md.svg       |    70 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/me.svg       |   116 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/mf.svg       |     7 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/mg.svg       |     7 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/mh.svg       |     7 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/mk.svg       |     5 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/ml.svg       |     7 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/mm.svg       |    16 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/mn.svg       |    13 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/mo.svg       |     9 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/mp.svg       |    86 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/mq.svg       |     7 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/mr.svg       |     6 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/ms.svg       |    39 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/mt.svg       |    49 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/mu.svg       |     8 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/mv.svg       |     6 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/mw.svg       |    10 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/mx.svg       |   382 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/my.svg       |    15 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/mz.svg       |    21 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/na.svg       |    16 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/nc.svg       |    14 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/ne.svg       |     6 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/nf.svg       |     9 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/ng.svg       |     6 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/ni.svg       |   129 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/nl.svg       |     5 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/no.svg       |     7 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/np.svg       |    14 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/nr.svg       |    12 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/nu.svg       |    26 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/nz.svg       |    41 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/om.svg       |   115 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/pa.svg       |    14 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/pe.svg       |   244 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/pf.svg       |    19 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/pg.svg       |     9 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/ph.svg       |     9 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/pk.svg       |    15 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/pl.svg       |     6 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/pm.svg       |     7 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/pn.svg       |    62 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/pr.svg       |    13 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/ps.svg       |    15 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/pt.svg       |    57 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/pw.svg       |    11 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/py.svg       |   157 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/qa.svg       |     4 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/re.svg       |     7 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/ro.svg       |     7 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/rs.svg       |   292 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/ru.svg       |     7 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/rw.svg       |    13 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/sa.svg       |    26 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/sb.svg       |    13 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/sc.svg       |    14 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/sd.svg       |    13 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/se.svg       |    16 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/sg.svg       |    13 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/sh.svg       |    74 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/si.svg       |    18 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/sj.svg       |     7 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/sk.svg       |     9 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/sl.svg       |     7 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/sm.svg       |    91 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/sn.svg       |     8 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/so.svg       |    11 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/sr.svg       |     6 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/ss.svg       |     8 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/st.svg       |    16 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/sv.svg       |   596 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/sx.svg       |    56 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/sy.svg       |     6 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/sz.svg       |    45 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/tc.svg       |    67 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/td.svg       |     7 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/tf.svg       |    15 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/tg.svg       |    14 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/th.svg       |     7 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/tj.svg       |    22 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/tk.svg       |     5 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/tl.svg       |    13 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/tm.svg       |   206 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/tn.svg       |    13 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/to.svg       |    10 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/tr.svg       |     8 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/tt.svg       |     5 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/tv.svg       |    16 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/tw.svg       |    14 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/tz.svg       |    13 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/ua.svg       |     6 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/ug.svg       |    30 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/um.svg       |    15 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/un.svg       |    16 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/us.svg       |    10 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/uy.svg       |    28 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/uz.svg       |    30 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/va.svg       |   479 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/vc.svg       |     8 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/ve.svg       |    26 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/vg.svg       |   127 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/vi.svg       |    28 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/vn.svg       |    11 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/vu.svg       |    18 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/wf.svg       |     7 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/ws.svg       |     7 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/xk.svg       |    16 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/ye.svg       |     7 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/yt.svg       |     7 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/za.svg       |    17 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/zm.svg       |    27 [32m+[m
+ resources/vendors/flag-icon/flags/4x3/zw.svg       |    21 [32m+[m
+ .../vendors/form_repeater/jquery.repeater.min.js   |     5 [32m+[m
+ resources/vendors/formatter/formatter.js           |   840 [32m++[m
+ resources/vendors/formatter/formatter.min.js       |     1 [32m+[m
+ resources/vendors/formatter/jquery.formatter.js    |   861 [32m++[m
+ .../vendors/formatter/jquery.formatter.min.js      |     1 [32m+[m
+ resources/vendors/formatter/scale.fix.js           |    17 [32m+[m
+ .../vendors/fullcalendar/css/fullcalendar.min.css  |     6 [32m+[m
+ .../fullcalendar/css/fullcalendar.print.css        |   176 [32m+[m
+ resources/vendors/fullcalendar/daygrid/LICENSE.txt |    20 [32m+[m
+ resources/vendors/fullcalendar/daygrid/README.md   |     8 [32m+[m
+ .../vendors/fullcalendar/daygrid/daygrid.min.css   |     1 [32m+[m
+ .../vendors/fullcalendar/daygrid/daygrid.min.js    |     6 [32m+[m
+ resources/vendors/fullcalendar/daygrid/main.d.ts   |   310 [32m+[m
+ resources/vendors/fullcalendar/daygrid/main.esm.js |  1627 [32m++[m
+ resources/vendors/fullcalendar/daygrid/main.js     |  1641 [32m++[m
+ .../vendors/fullcalendar/daygrid/package.json      |    33 [32m+[m
+ .../vendors/fullcalendar/interaction/LICENSE.txt   |    20 [32m+[m
+ .../vendors/fullcalendar/interaction/README.md     |     8 [32m+[m
+ .../fullcalendar/interaction/interaction.min.js    |     6 [32m+[m
+ .../vendors/fullcalendar/interaction/main.d.ts     |   323 [32m+[m
+ .../vendors/fullcalendar/interaction/main.esm.js   |  2132 [32m+++[m
+ resources/vendors/fullcalendar/interaction/main.js |  2143 [32m+++[m
+ .../vendors/fullcalendar/interaction/package.json  |    33 [32m+[m
+ .../vendors/fullcalendar/js/fullcalendar.min.js    |     6 [32m+[m
+ resources/vendors/fullcalendar/js/gcal.js          |   324 [32m+[m
+ resources/vendors/fullcalendar/js/gcal.min.js      |     6 [32m+[m
+ resources/vendors/fullcalendar/js/lang-all.js      |     4 [32m+[m
+ resources/vendors/fullcalendar/js/locale-all.js    |     1 [32m+[m
+ .../vendors/fullcalendar/lib/jquery-ui.min.js      |    13 [32m+[m
+ resources/vendors/fullcalendar/lib/jquery.min.js   |     2 [32m+[m
+ resources/vendors/fullcalendar/lib/moment.min.js   |     6 [32m+[m
+ resources/vendors/fullcalendar/locales/af.js       |    30 [32m+[m
+ resources/vendors/fullcalendar/locales/ar-dz.js    |    31 [32m+[m
+ resources/vendors/fullcalendar/locales/ar-kw.js    |    31 [32m+[m
+ resources/vendors/fullcalendar/locales/ar-ly.js    |    31 [32m+[m
+ resources/vendors/fullcalendar/locales/ar-ma.js    |    31 [32m+[m
+ resources/vendors/fullcalendar/locales/ar-sa.js    |    31 [32m+[m
+ resources/vendors/fullcalendar/locales/ar-tn.js    |    31 [32m+[m
+ resources/vendors/fullcalendar/locales/ar.js       |    31 [32m+[m
+ resources/vendors/fullcalendar/locales/bg.js       |    31 [32m+[m
+ resources/vendors/fullcalendar/locales/bs.js       |    32 [32m+[m
+ resources/vendors/fullcalendar/locales/ca.js       |    30 [32m+[m
+ resources/vendors/fullcalendar/locales/cs.js       |    32 [32m+[m
+ resources/vendors/fullcalendar/locales/da.js       |    30 [32m+[m
+ resources/vendors/fullcalendar/locales/de.js       |    33 [32m+[m
+ resources/vendors/fullcalendar/locales/el.js       |    30 [32m+[m
+ resources/vendors/fullcalendar/locales/en-au.js    |    17 [32m+[m
+ resources/vendors/fullcalendar/locales/en-gb.js    |    17 [32m+[m
+ resources/vendors/fullcalendar/locales/en-nz.js    |    17 [32m+[m
+ resources/vendors/fullcalendar/locales/es-us.js    |    30 [32m+[m
+ resources/vendors/fullcalendar/locales/es.js       |    30 [32m+[m
+ resources/vendors/fullcalendar/locales/et.js       |    32 [32m+[m
+ resources/vendors/fullcalendar/locales/eu.js       |    30 [32m+[m
+ resources/vendors/fullcalendar/locales/fa.js       |    33 [32m+[m
+ resources/vendors/fullcalendar/locales/fi.js       |    30 [32m+[m
+ resources/vendors/fullcalendar/locales/fr-ca.js    |    27 [32m+[m
+ resources/vendors/fullcalendar/locales/fr-ch.js    |    31 [32m+[m
+ resources/vendors/fullcalendar/locales/fr.js       |    31 [32m+[m
+ resources/vendors/fullcalendar/locales/gl.js       |    30 [32m+[m
+ resources/vendors/fullcalendar/locales/he.js       |    27 [32m+[m
+ resources/vendors/fullcalendar/locales/hi.js       |    32 [32m+[m
+ resources/vendors/fullcalendar/locales/hr.js       |    32 [32m+[m
+ resources/vendors/fullcalendar/locales/hu.js       |    30 [32m+[m
+ resources/vendors/fullcalendar/locales/id.js       |    30 [32m+[m
+ resources/vendors/fullcalendar/locales/is.js       |    30 [32m+[m
+ resources/vendors/fullcalendar/locales/it.js       |    32 [32m+[m
+ resources/vendors/fullcalendar/locales/ja.js       |    28 [32m+[m
+ resources/vendors/fullcalendar/locales/ka.js       |    32 [32m+[m
+ resources/vendors/fullcalendar/locales/kk.js       |    32 [32m+[m
+ resources/vendors/fullcalendar/locales/ko.js       |    26 [32m+[m
+ resources/vendors/fullcalendar/locales/lb.js       |    30 [32m+[m
+ resources/vendors/fullcalendar/locales/lt.js       |    30 [32m+[m
+ resources/vendors/fullcalendar/locales/lv.js       |    32 [32m+[m
+ resources/vendors/fullcalendar/locales/mk.js       |    28 [32m+[m
+ resources/vendors/fullcalendar/locales/ms.js       |    32 [32m+[m
+ resources/vendors/fullcalendar/locales/nb.js       |    30 [32m+[m
+ resources/vendors/fullcalendar/locales/nl.js       |    30 [32m+[m
+ resources/vendors/fullcalendar/locales/nn.js       |    30 [32m+[m
+ resources/vendors/fullcalendar/locales/pl.js       |    30 [32m+[m
+ resources/vendors/fullcalendar/locales/pt-br.js    |    28 [32m+[m
+ resources/vendors/fullcalendar/locales/pt.js       |    30 [32m+[m
+ resources/vendors/fullcalendar/locales/ro.js       |    32 [32m+[m
+ resources/vendors/fullcalendar/locales/ru.js       |    32 [32m+[m
+ resources/vendors/fullcalendar/locales/sk.js       |    32 [32m+[m
+ resources/vendors/fullcalendar/locales/sl.js       |    30 [32m+[m
+ resources/vendors/fullcalendar/locales/sq.js       |    32 [32m+[m
+ resources/vendors/fullcalendar/locales/sr-cyrl.js  |    32 [32m+[m
+ resources/vendors/fullcalendar/locales/sr.js       |    32 [32m+[m
+ resources/vendors/fullcalendar/locales/sv.js       |    30 [32m+[m
+ resources/vendors/fullcalendar/locales/th.js       |    25 [32m+[m
+ resources/vendors/fullcalendar/locales/tr.js       |    30 [32m+[m
+ resources/vendors/fullcalendar/locales/uk.js       |    32 [32m+[m
+ resources/vendors/fullcalendar/locales/vi.js       |    32 [32m+[m
+ resources/vendors/fullcalendar/locales/zh-cn.js    |    33 [32m+[m
+ resources/vendors/fullcalendar/locales/zh-tw.js    |    26 [32m+[m
+ .../vendors/fullcalendar/timegrid/LICENSE.txt      |    20 [32m+[m
+ resources/vendors/fullcalendar/timegrid/README.md  |     8 [32m+[m
+ resources/vendors/fullcalendar/timegrid/main.css   |   309 [32m+[m
+ resources/vendors/fullcalendar/timegrid/main.d.ts  |   220 [32m+[m
+ .../vendors/fullcalendar/timegrid/main.esm.js      |  1345 [32m++[m
+ resources/vendors/fullcalendar/timegrid/main.js    |  1357 [32m++[m
+ .../vendors/fullcalendar/timegrid/package.json     |    36 [32m+[m
+ .../vendors/fullcalendar/timegrid/timegrid.min.css |     1 [32m+[m
+ .../vendors/fullcalendar/timegrid/timegrid.min.js  |     6 [32m+[m
+ .../vendors/hover-effects/media-hover-effects.css  |  1145 [32m++[m
+ resources/vendors/imagesloaded.pkgd.min.js         |     7 [32m+[m
+ .../vendors/ionRangeSlider/css/ion.rangeSlider.css |   675 [32m+[m
+ .../ionRangeSlider/css/ion.rangeSlider.min.css     |     1 [32m+[m
+ .../css/ion.rangeSlider.skinFlat.css               |   106 [32m+[m
+ .../ionRangeSlider/img/sprite-skin-flat.png        |   Bin [31m0[m -> [32m304[m bytes
+ .../vendors/ionRangeSlider/js/ion.rangeSlider.js   |  2449 [32m+++[m
+ .../ionRangeSlider/js/ion.rangeSlider.min.js       |     2 [32m+[m
+ resources/vendors/jkanban/jkanban.min.css          |     1 [32m+[m
+ resources/vendors/jkanban/jkanban.min.js           |     1 [32m+[m
+ .../vendors/jquery-cookies/jquery.cookies.min.js   |     8 [32m+[m
+ resources/vendors/jquery-sortable.js               |   693 [32m+[m
+ .../jquery-validation/additional-methods.js        |  1512 [32m++[m
+ .../jquery-validation/additional-methods.min.js    |     4 [32m+[m
+ .../vendors/jquery-validation/jquery.validate.js   |  1650 [32m++[m
+ .../jquery-validation/jquery.validate.min.js       |     4 [32m+[m
+ .../jquery-validation/localization/messages_ar.js  |    35 [32m+[m
+ .../localization/messages_ar.min.js                |     4 [32m+[m
+ .../jquery-validation/localization/messages_az.js  |    35 [32m+[m
+ .../localization/messages_az.min.js                |     4 [32m+[m
+ .../jquery-validation/localization/messages_bg.js  |    35 [32m+[m
+ .../localization/messages_bg.min.js                |     4 [32m+[m
+ .../localization/messages_bn_BD.js                 |    35 [32m+[m
+ .../localization/messages_bn_BD.min.js             |     4 [32m+[m
+ .../jquery-validation/localization/messages_ca.js  |    35 [32m+[m
+ .../localization/messages_ca.min.js                |     4 [32m+[m
+ .../jquery-validation/localization/messages_cs.js  |    36 [32m+[m
+ .../localization/messages_cs.min.js                |     4 [32m+[m
+ .../jquery-validation/localization/messages_da.js  |    46 [32m+[m
+ .../localization/messages_da.min.js                |     4 [32m+[m
+ .../jquery-validation/localization/messages_de.js  |    82 [32m+[m
+ .../localization/messages_de.min.js                |     4 [32m+[m
+ .../jquery-validation/localization/messages_el.js  |    35 [32m+[m
+ .../localization/messages_el.min.js                |     4 [32m+[m
+ .../jquery-validation/localization/messages_es.js  |    38 [32m+[m
+ .../localization/messages_es.min.js                |     4 [32m+[m
+ .../localization/messages_es_AR.js                 |    39 [32m+[m
+ .../localization/messages_es_AR.min.js             |     4 [32m+[m
+ .../localization/messages_es_PE.js                 |    39 [32m+[m
+ .../localization/messages_es_PE.min.js             |     4 [32m+[m
+ .../jquery-validation/localization/messages_et.js  |    33 [32m+[m
+ .../localization/messages_et.min.js                |     4 [32m+[m
+ .../jquery-validation/localization/messages_eu.js  |    35 [32m+[m
+ .../localization/messages_eu.min.js                |     4 [32m+[m
+ .../jquery-validation/localization/messages_fa.js  |    39 [32m+[m
+ .../localization/messages_fa.min.js                |     4 [32m+[m
+ .../jquery-validation/localization/messages_fi.js  |    33 [32m+[m
+ .../localization/messages_fi.min.js                |     4 [32m+[m
+ .../jquery-validation/localization/messages_fr.js  |    63 [32m+[m
+ .../localization/messages_fr.min.js                |     4 [32m+[m
+ .../jquery-validation/localization/messages_ge.js  |    35 [32m+[m
+ .../localization/messages_ge.min.js                |     4 [32m+[m
+ .../jquery-validation/localization/messages_gl.js  |    40 [32m+[m
+ .../localization/messages_gl.min.js                |     4 [32m+[m
+ .../jquery-validation/localization/messages_he.js  |    35 [32m+[m
+ .../localization/messages_he.min.js                |     4 [32m+[m
+ .../jquery-validation/localization/messages_hr.js  |    35 [32m+[m
+ .../localization/messages_hr.min.js                |     4 [32m+[m
+ .../jquery-validation/localization/messages_hu.js  |    35 [32m+[m
+ .../localization/messages_hu.min.js                |     4 [32m+[m
+ .../localization/messages_hy_AM.js                 |    35 [32m+[m
+ .../localization/messages_hy_AM.min.js             |     4 [32m+[m
+ .../jquery-validation/localization/messages_id.js  |    34 [32m+[m
+ .../localization/messages_id.min.js                |     4 [32m+[m
+ .../jquery-validation/localization/messages_is.js  |    33 [32m+[m
+ .../localization/messages_is.min.js                |     4 [32m+[m
+ .../jquery-validation/localization/messages_it.js  |    39 [32m+[m
+ .../localization/messages_it.min.js                |     4 [32m+[m
+ .../jquery-validation/localization/messages_ja.js  |    36 [32m+[m
+ .../localization/messages_ja.min.js                |     4 [32m+[m
+ .../jquery-validation/localization/messages_ka.js  |    35 [32m+[m
+ .../localization/messages_ka.min.js                |     4 [32m+[m
+ .../jquery-validation/localization/messages_kk.js  |    35 [32m+[m
+ .../localization/messages_kk.min.js                |     4 [32m+[m
+ .../jquery-validation/localization/messages_ko.js  |    35 [32m+[m
+ .../localization/messages_ko.min.js                |     4 [32m+[m
+ .../jquery-validation/localization/messages_lt.js  |    35 [32m+[m
+ .../localization/messages_lt.min.js                |     4 [32m+[m
+ .../jquery-validation/localization/messages_lv.js  |    35 [32m+[m
+ .../localization/messages_lv.min.js                |     4 [32m+[m
+ .../jquery-validation/localization/messages_mk.js  |    35 [32m+[m
+ .../localization/messages_mk.min.js                |     4 [32m+[m
+ .../jquery-validation/localization/messages_my.js  |    35 [32m+[m
+ .../localization/messages_my.min.js                |     4 [32m+[m
+ .../jquery-validation/localization/messages_nl.js  |    46 [32m+[m
+ .../localization/messages_nl.min.js                |     4 [32m+[m
+ .../jquery-validation/localization/messages_no.js  |    35 [32m+[m
+ .../localization/messages_no.min.js                |     4 [32m+[m
+ .../jquery-validation/localization/messages_pl.js  |    38 [32m+[m
+ .../localization/messages_pl.min.js                |     4 [32m+[m
+ .../localization/messages_pt_BR.js                 |    91 [32m+[m
+ .../localization/messages_pt_BR.min.js             |     4 [32m+[m
+ .../localization/messages_pt_PT.js                 |    39 [32m+[m
+ .../localization/messages_pt_PT.min.js             |     4 [32m+[m
+ .../jquery-validation/localization/messages_ro.js  |    35 [32m+[m
+ .../localization/messages_ro.min.js                |     4 [32m+[m
+ .../jquery-validation/localization/messages_ru.js  |    35 [32m+[m
+ .../localization/messages_ru.min.js                |     4 [32m+[m
+ .../jquery-validation/localization/messages_sd.js  |    35 [32m+[m
+ .../localization/messages_sd.min.js                |     4 [32m+[m
+ .../jquery-validation/localization/messages_si.js  |    35 [32m+[m
+ .../localization/messages_si.min.js                |     4 [32m+[m
+ .../jquery-validation/localization/messages_sk.js  |    33 [32m+[m
+ .../localization/messages_sk.min.js                |     4 [32m+[m
+ .../jquery-validation/localization/messages_sl.js  |    35 [32m+[m
+ .../localization/messages_sl.min.js                |     4 [32m+[m
+ .../jquery-validation/localization/messages_sr.js  |    36 [32m+[m
+ .../localization/messages_sr.min.js                |     4 [32m+[m
+ .../localization/messages_sr_lat.js                |    36 [32m+[m
+ .../localization/messages_sr_lat.min.js            |     4 [32m+[m
+ .../jquery-validation/localization/messages_sv.js  |    35 [32m+[m
+ .../localization/messages_sv.min.js                |     4 [32m+[m
+ .../jquery-validation/localization/messages_th.js  |    35 [32m+[m
+ .../localization/messages_th.min.js                |     4 [32m+[m
+ .../jquery-validation/localization/messages_tj.js  |    35 [32m+[m
+ .../localization/messages_tj.min.js                |     4 [32m+[m
+ .../jquery-validation/localization/messages_tr.js  |    36 [32m+[m
+ .../localization/messages_tr.min.js                |     4 [32m+[m
+ .../jquery-validation/localization/messages_uk.js  |    35 [32m+[m
+ .../localization/messages_uk.min.js                |     4 [32m+[m
+ .../jquery-validation/localization/messages_ur.js  |    35 [32m+[m
+ .../localization/messages_ur.min.js                |     4 [32m+[m
+ .../jquery-validation/localization/messages_vi.js  |    35 [32m+[m
+ .../localization/messages_vi.min.js                |     4 [32m+[m
+ .../jquery-validation/localization/messages_zh.js  |    36 [32m+[m
+ .../localization/messages_zh.min.js                |     4 [32m+[m
+ .../localization/messages_zh_TW.js                 |    37 [32m+[m
+ .../localization/messages_zh_TW.min.js             |     4 [32m+[m
+ .../jquery-validation/localization/methods_de.js   |    24 [32m+[m
+ .../localization/methods_de.min.js                 |     4 [32m+[m
+ .../localization/methods_es_CL.js                  |    24 [32m+[m
+ .../localization/methods_es_CL.min.js              |     4 [32m+[m
+ .../jquery-validation/localization/methods_fi.js   |    24 [32m+[m
+ .../localization/methods_fi.min.js                 |     4 [32m+[m
+ .../jquery-validation/localization/methods_it.js   |    24 [32m+[m
+ .../localization/methods_it.min.js                 |     4 [32m+[m
+ .../jquery-validation/localization/methods_nl.js   |    24 [32m+[m
+ .../localization/methods_nl.min.js                 |     4 [32m+[m
+ .../jquery-validation/localization/methods_pt.js   |    21 [32m+[m
+ .../localization/methods_pt.min.js                 |     4 [32m+[m
+ .../vendors/jquery.nestable/jquery.nestable.js     |   484 [32m+[m
+ resources/vendors/jquery.nestable/nestable.css     |   111 [32m+[m
+ resources/vendors/jstree/jstree.js                 |  8612 [32m+++++++++++[m
+ resources/vendors/jstree/jstree.min.js             |     6 [32m+[m
+ .../vendors/jstree/themes/default-dark/32px.png    |   Bin [31m0[m -> [32m1525[m bytes
+ .../vendors/jstree/themes/default-dark/40px.png    |   Bin [31m0[m -> [32m6526[m bytes
+ .../vendors/jstree/themes/default-dark/style.css   |  1146 [32m++[m
+ .../jstree/themes/default-dark/style.min.css       |     1 [32m+[m
+ .../jstree/themes/default-dark/throbber.gif        |   Bin [31m0[m -> [32m1464[m bytes
+ resources/vendors/jstree/themes/default/32px.png   |   Bin [31m0[m -> [32m5667[m bytes
+ resources/vendors/jstree/themes/default/40px.png   |   Bin [31m0[m -> [32m2218[m bytes
+ resources/vendors/jstree/themes/default/style.css  |  1102 [32m++[m
+ .../vendors/jstree/themes/default/style.min.css    |     1 [32m+[m
+ .../vendors/jstree/themes/default/throbber.gif     |   Bin [31m0[m -> [32m1464[m bytes
+ .../magnific-popup/jquery.magnific-popup.js        |  1860 [32m+++[m
+ .../magnific-popup/jquery.magnific-popup.min.js    |     4 [32m+[m
+ .../vendors/magnific-popup/magnific-popup.css      |   351 [32m+[m
+ resources/vendors/masonry.pkgd.min.js              |     9 [32m+[m
+ .../materialize-stepper.min.css                    |    10 [32m+[m
+ .../materialize-stepper/materialize-stepper.min.js |    10 [32m+[m
+ resources/vendors/noUiSlider/nouislider.css        |   444 [32m+[m
+ resources/vendors/noUiSlider/nouislider.js         |  2295 [32m+++[m
+ resources/vendors/noUiSlider/nouislider.min.css    |   389 [32m+[m
+ resources/vendors/noUiSlider/nouislider.min.js     |   835 [32m+[m
+ .../perfect-scrollbar/perfect-scrollbar.css        |   116 [32m+[m
+ .../perfect-scrollbar/perfect-scrollbar.min.js     |     6 [32m+[m
+ resources/vendors/prism/prism.css                  |   125 [32m+[m
+ resources/vendors/prism/prism.js                   |    11 [32m+[m
+ resources/vendors/quill/assets/base.styl           |   298 [32m+[m
+ resources/vendors/quill/assets/bubble.styl         |    11 [32m+[m
+ resources/vendors/quill/assets/bubble/toolbar.styl |    14 [32m+[m
+ resources/vendors/quill/assets/bubble/tooltip.styl |    46 [32m+[m
+ resources/vendors/quill/assets/core.styl           |   155 [32m+[m
+ resources/vendors/quill/assets/favicon.png         |   Bin [31m0[m -> [32m696[m bytes
+ .../vendors/quill/assets/icons/align-center.svg    |     5 [32m+[m
+ .../vendors/quill/assets/icons/align-justify.svg   |     5 [32m+[m
+ .../vendors/quill/assets/icons/align-left.svg      |     5 [32m+[m
+ .../vendors/quill/assets/icons/align-right.svg     |     5 [32m+[m
+ .../vendors/quill/assets/icons/attachment.svg      |     3 [32m+[m
+ resources/vendors/quill/assets/icons/audio.svg     |     5 [32m+[m
+ .../vendors/quill/assets/icons/authorship.svg      |     5 [32m+[m
+ .../vendors/quill/assets/icons/background.svg      |    52 [32m+[m
+ .../vendors/quill/assets/icons/blockquote.svg      |     6 [32m+[m
+ resources/vendors/quill/assets/icons/bold.svg      |     4 [32m+[m
+ resources/vendors/quill/assets/icons/clean.svg     |     7 [32m+[m
+ resources/vendors/quill/assets/icons/code.svg      |     5 [32m+[m
+ resources/vendors/quill/assets/icons/color.svg     |     5 [32m+[m
+ resources/vendors/quill/assets/icons/comment.svg   |     3 [32m+[m
+ .../vendors/quill/assets/icons/direction-ltr.svg   |     7 [32m+[m
+ .../vendors/quill/assets/icons/direction-rtl.svg   |     7 [32m+[m
+ resources/vendors/quill/assets/icons/dropdown.svg  |     4 [32m+[m
+ resources/vendors/quill/assets/icons/emoji.svg     |     6 [32m+[m
+ .../vendors/quill/assets/icons/float-center.svg    |     5 [32m+[m
+ .../vendors/quill/assets/icons/float-full.svg      |     5 [32m+[m
+ .../vendors/quill/assets/icons/float-left.svg      |     7 [32m+[m
+ .../vendors/quill/assets/icons/float-right.svg     |     7 [32m+[m
+ resources/vendors/quill/assets/icons/font.svg      |     5 [32m+[m
+ resources/vendors/quill/assets/icons/formula.svg   |     5 [32m+[m
+ resources/vendors/quill/assets/icons/hashtag.svg   |     6 [32m+[m
+ resources/vendors/quill/assets/icons/header-2.svg  |     6 [32m+[m
+ resources/vendors/quill/assets/icons/header.svg    |     7 [32m+[m
+ resources/vendors/quill/assets/icons/image.svg     |     5 [32m+[m
+ resources/vendors/quill/assets/icons/indent.svg    |     6 [32m+[m
+ resources/vendors/quill/assets/icons/italic.svg    |     5 [32m+[m
+ resources/vendors/quill/assets/icons/link.svg      |     5 [32m+[m
+ .../vendors/quill/assets/icons/list-bullet.svg     |     8 [32m+[m
+ .../vendors/quill/assets/icons/list-check.svg      |     8 [32m+[m
+ .../vendors/quill/assets/icons/list-ordered.svg    |     9 [32m+[m
+ resources/vendors/quill/assets/icons/map.svg       |     5 [32m+[m
+ resources/vendors/quill/assets/icons/mention.svg   |     4 [32m+[m
+ resources/vendors/quill/assets/icons/outdent.svg   |     6 [32m+[m
+ resources/vendors/quill/assets/icons/redo.svg      |     4 [32m+[m
+ .../vendors/quill/assets/icons/size-decrease.svg   |     5 [32m+[m
+ .../vendors/quill/assets/icons/size-increase.svg   |     6 [32m+[m
+ resources/vendors/quill/assets/icons/size.svg      |     6 [32m+[m
+ resources/vendors/quill/assets/icons/spacing.svg   |     9 [32m+[m
+ resources/vendors/quill/assets/icons/speech.svg    |     6 [32m+[m
+ resources/vendors/quill/assets/icons/strike.svg    |     5 [32m+[m
+ resources/vendors/quill/assets/icons/subscript.svg |     4 [32m+[m
+ .../vendors/quill/assets/icons/superscript.svg     |     4 [32m+[m
+ .../quill/assets/icons/table-border-all.svg        |     5 [32m+[m
+ .../quill/assets/icons/table-border-bottom.svg     |    28 [32m+[m
+ .../quill/assets/icons/table-border-left.svg       |    28 [32m+[m
+ .../quill/assets/icons/table-border-none.svg       |    25 [32m+[m
+ .../quill/assets/icons/table-border-outside.svg    |    35 [32m+[m
+ .../quill/assets/icons/table-border-right.svg      |    28 [32m+[m
+ .../quill/assets/icons/table-border-top.svg        |    28 [32m+[m
+ .../quill/assets/icons/table-delete-cells.svg      |    13 [32m+[m
+ .../quill/assets/icons/table-delete-columns.svg    |     8 [32m+[m
+ .../quill/assets/icons/table-delete-rows.svg       |     9 [32m+[m
+ .../quill/assets/icons/table-insert-cells.svg      |    13 [32m+[m
+ .../quill/assets/icons/table-insert-columns.svg    |     8 [32m+[m
+ .../quill/assets/icons/table-insert-rows.svg       |     9 [32m+[m
+ .../quill/assets/icons/table-merge-cells.svg       |     4 [32m+[m
+ .../quill/assets/icons/table-unmerge-cells.svg     |     7 [32m+[m
+ resources/vendors/quill/assets/icons/table.svg     |    11 [32m+[m
+ resources/vendors/quill/assets/icons/underline.svg |     4 [32m+[m
+ resources/vendors/quill/assets/icons/undo.svg      |     4 [32m+[m
+ resources/vendors/quill/assets/icons/video.svg     |    14 [32m+[m
+ resources/vendors/quill/assets/snow.styl           |    18 [32m+[m
+ resources/vendors/quill/assets/snow/toolbar.styl   |    26 [32m+[m
+ resources/vendors/quill/assets/snow/tooltip.styl   |    54 [32m+[m
+ .../vendors/quill/fonts/KaTeX_Main-Regular.woff2   |   Bin [31m0[m -> [32m31220[m bytes
+ .../vendors/quill/fonts/KaTeX_Math-Italic.woff2    |   Bin [31m0[m -> [32m20432[m bytes
+ resources/vendors/quill/highlight.min.js           |     3 [32m+[m
+ resources/vendors/quill/katex.min.css              |     1 [32m+[m
+ resources/vendors/quill/katex.min.js               |     5 [32m+[m
+ resources/vendors/quill/monokai-sublime.min.css    |     1 [32m+[m
+ resources/vendors/quill/quill.bubble.css           |   952 [32m++[m
+ resources/vendors/quill/quill.js                   | 11489 [32m++++++++++++++[m
+ resources/vendors/quill/quill.min.js               |     8 [32m+[m
+ resources/vendors/quill/quill.snow.css             |   945 [32m++[m
+ resources/vendors/quill/themes/base.js             |   256 [32m+[m
+ resources/vendors/quill/themes/bubble.js           |   112 [32m+[m
+ resources/vendors/quill/themes/snow.js             |   117 [32m+[m
+ resources/vendors/quill/ui/color-picker.js         |    35 [32m+[m
+ resources/vendors/quill/ui/icon-picker.js          |    23 [32m+[m
+ resources/vendors/quill/ui/icons.js                |    48 [32m+[m
+ resources/vendors/quill/ui/picker.js               |   116 [32m+[m
+ resources/vendors/quill/ui/tooltip.js              |    52 [32m+[m
+ resources/vendors/rateYo/jquery.rateyo.min.css     |    39 [32m+[m
+ resources/vendors/rateYo/jquery.rateyo.min.js      |     4 [32m+[m
+ resources/vendors/select2/select2-materialize.css  |   709 [32m+[m
+ resources/vendors/select2/select2.full.min.js      |     2 [32m+[m
+ resources/vendors/select2/select2.min.css          |     1 [32m+[m
+ .../shepherd-js/shepherd-theme-default.min.css     |     9 [32m+[m
+ resources/vendors/shepherd-js/shepherd.min.js      |     1 [32m+[m
+ resources/vendors/sortable/jquery-sortable-min.js  |    19 [32m+[m
+ .../vendors/sparkline/jquery.sparkline.min.js      |     5 [32m+[m
+ resources/vendors/sweetalert/css/button-loader.css |    52 [32m+[m
+ resources/vendors/sweetalert/css/buttons.css       |    98 [32m+[m
+ resources/vendors/sweetalert/css/content.css       |    33 [32m+[m
+ resources/vendors/sweetalert/css/icons.css         |    34 [32m+[m
+ resources/vendors/sweetalert/css/icons/error.css   |    69 [32m+[m
+ resources/vendors/sweetalert/css/icons/info.css    |    33 [32m+[m
+ resources/vendors/sweetalert/css/icons/success.css |   154 [32m+[m
+ resources/vendors/sweetalert/css/icons/warning.css |    41 [32m+[m
+ resources/vendors/sweetalert/css/text.css          |    44 [32m+[m
+ resources/vendors/sweetalert/sweetalert.css        |   932 [32m++[m
+ resources/vendors/sweetalert/sweetalert.min.js     |     1 [32m+[m
+ resources/vendors/vendors-rtl.min.css              |    15 [32m+[m
+ resources/vendors/vendors.min.css                  |    15 [32m+[m
+ .../vendors/waypoints/jquery.waypoints.min.js      |     7 [32m+[m
+ .../vendors/waypoints/noframework.waypoints.min.js |     7 [32m+[m
+ resources/vendors/waypoints/zepto.waypoints.min.js |     7 [32m+[m
+ resources/views/auth/login.blade.php               |   137 [32m+[m
+ resources/views/auth/passwords/confirm.blade.php   |    44 [32m+[m
+ resources/views/auth/passwords/email.blade.php     |    73 [32m+[m
+ resources/views/auth/passwords/reset.blade.php     |    68 [32m+[m
+ resources/views/auth/verify.blade.php              |    30 [32m+[m
+ .../views/layouts/contentLayoutMaster.blade.php    |    53 [32m+[m
+ resources/views/layouts/fullLayoutMaster.blade.php |    60 [32m+[m
+ .../views/layouts/horizontalLayoutMaster.blade.php |    60 [32m+[m
+ .../views/layouts/verticalLayoutMaster.blade.php   |    67 [32m+[m
+ .../views/pages/advance-ui-carousel.blade.php      |   324 [32m+[m
+ .../views/pages/advance-ui-collapsibles.blade.php  |   598 [32m+[m
+ .../views/pages/advance-ui-dropdown.blade.php      |   196 [32m+[m
+ .../pages/advance-ui-feature-discovery.blade.php   |    92 [32m+[m
+ resources/views/pages/advance-ui-media.blade.php   |   326 [32m+[m
+ resources/views/pages/advance-ui-modals.blade.php  |   288 [32m+[m
+ .../views/pages/advance-ui-scrollspy.blade.php     |   153 [32m+[m
+ resources/views/pages/advance-ui-tabs.blade.php    |   451 [32m+[m
+ resources/views/pages/advance-ui-toasts.blade.php  |   231 [32m+[m
+ resources/views/pages/advance-ui-tooltip.blade.php |   145 [32m+[m
+ resources/views/pages/advance-ui-waves.blade.php   |   220 [32m+[m
+ resources/views/pages/app-calendar.blade.php       |    88 [32m+[m
+ resources/views/pages/app-chat.blade.php           |   420 [32m+[m
+ resources/views/pages/app-contacts.blade.php       |   625 [32m+[m
+ resources/views/pages/app-email-content.blade.php  |   266 [32m+[m
+ resources/views/pages/app-email.blade.php          |   627 [32m+[m
+ resources/views/pages/app-file-manager.blade.php   |   660 [32m+[m
+ resources/views/pages/app-invoice-add.blade.php    |   315 [32m+[m
+ resources/views/pages/app-invoice-edit.blade.php   |   315 [32m+[m
+ resources/views/pages/app-invoice-view.blade.php   |   201 [32m+[m
+ resources/views/pages/app-kanban.blade.php         |   136 [32m+[m
+ resources/views/pages/app-todo.blade.php           |   563 [32m+[m
+ resources/views/pages/cards-advance.blade.php      |   584 [32m+[m
+ resources/views/pages/cards-basic.blade.php        |   455 [32m+[m
+ resources/views/pages/cards-extended.blade.php     |   659 [32m+[m
+ resources/views/pages/charts-chartist.blade.php    |   156 [32m+[m
+ resources/views/pages/charts-chartjs.blade.php     |   117 [32m+[m
+ resources/views/pages/charts-sparklines.blade.php  |   154 [32m+[m
+ resources/views/pages/croppie.blade.php            |   134 [32m+[m
+ resources/views/pages/css-animations.blade.php     |   188 [32m+[m
+ resources/views/pages/css-color.blade.php          |   475 [32m+[m
+ resources/views/pages/css-grid.blade.php           |   885 [32m++[m
+ resources/views/pages/css-helpers.blade.php        |   344 [32m+[m
+ resources/views/pages/css-media.blade.php          |   234 [32m+[m
+ resources/views/pages/css-pulse.blade.php          |   119 [32m+[m
+ resources/views/pages/css-sass.blade.php           |   147 [32m+[m
+ resources/views/pages/css-shadow.blade.php         |    85 [32m+[m
+ resources/views/pages/css-transitions.blade.php    |    69 [32m+[m
+ resources/views/pages/css-typography.blade.php     |   160 [32m+[m
+ .../views/pages/dashboard-analytics.blade.php      |   571 [32m+[m
+ .../views/pages/dashboard-ecommerce.blade.php      |   287 [32m+[m
+ resources/views/pages/dashboard-modern.blade.php   |   504 [32m+[m
+ resources/views/pages/eCommerce-pricing.blade.php  |   263 [32m+[m
+ .../views/pages/eCommerce-products-page.blade.php  |   675 [32m+[m
+ .../pages/extra-components-highlight.blade.php     |   316 [32m+[m
+ .../views/pages/extra-components-i18n.blade.php    |    71 [32m+[m
+ .../pages/extra-components-nestable.blade.php      |   170 [32m+[m
+ .../pages/extra-components-range-slider.blade.php  |   299 [32m+[m
+ .../views/pages/extra-components-ratings.blade.php |   181 [32m+[m
+ .../pages/extra-components-sweetalert.blade.php    |   624 [32m+[m
+ .../views/pages/extra-components-tour.blade.php    |    45 [32m+[m
+ .../pages/extra-components-treeview.blade.php      |   231 [32m+[m
+ resources/views/pages/form-editor.blade.php        |   253 [32m+[m
+ resources/views/pages/form-elements.blade.php      |  1435 [32m++[m
+ resources/views/pages/form-file-uploads.blade.php  |   109 [32m+[m
+ resources/views/pages/form-layouts.blade.php       |   339 [32m+[m
+ resources/views/pages/form-masks.blade.php         |   214 [32m+[m
+ resources/views/pages/form-select2.blade.php       |  1072 [32m++[m
+ resources/views/pages/form-validation.blade.php    |   296 [32m+[m
+ resources/views/pages/form-wizard.blade.php        |   599 [32m+[m
+ .../views/pages/fullscreen-slider-demo.blade.php   |    42 [32m+[m
+ resources/views/pages/intro.blade.php              |    94 [32m+[m
+ resources/views/pages/media-gallery-page.blade.php |   211 [32m+[m
+ .../views/pages/media-hover-effects.blade.php      |   469 [32m+[m
+ .../pages/monthly-subscription-list.blade.php      |   398 [32m+[m
+ resources/views/pages/page-404.blade.php           |    27 [32m+[m
+ resources/views/pages/page-500.blade.php           |    25 [32m+[m
+ .../views/pages/page-account-settings.blade.php    |   429 [32m+[m
+ resources/views/pages/page-blank.blade.php         |    20 [32m+[m
+ resources/views/pages/page-blog-list.blade.php     |   320 [32m+[m
+ resources/views/pages/page-collapse.blade.php      |    23 [32m+[m
+ resources/views/pages/page-contact.blade.php       |   133 [32m+[m
+ resources/views/pages/page-faq-detail.blade.php    |    89 [32m+[m
+ resources/views/pages/page-faq.blade.php           |   187 [32m+[m
+ .../page-knowledge-licensing-detail.blade.php      |    73 [32m+[m
+ .../views/pages/page-knowledge-licensing.blade.php |    84 [32m+[m
+ resources/views/pages/page-knowledge.blade.php     |   114 [32m+[m
+ resources/views/pages/page-maintenance.blade.php   |    24 [32m+[m
+ resources/views/pages/page-search.blade.php        |   176 [32m+[m
+ resources/views/pages/page-timeline.blade.php      |   321 [32m+[m
+ resources/views/pages/page-users-edit.blade.php    |   224 [32m+[m
+ resources/views/pages/page-users-list.blade.php    |   122 [32m+[m
+ resources/views/pages/page-users-view.blade.php    |   205 [32m+[m
+ resources/views/pages/partials/buy-now.blade.php   |     4 [32m+[m
+ .../views/pages/partials/customizer.blade.php      |   189 [32m+[m
+ resources/views/pages/patient-add-form.blade.php   |  1072 [32m++[m
+ resources/views/pages/patient-data-table.blade.php |  6741 [32m+++++++++[m
+ resources/views/pages/patient-edit-form.blade.php  |  1128 [32m++[m
+ resources/views/pages/patient-records.php          |  4068 [32m+++++[m
+ resources/views/pages/patient-view.blade.php       | 13355 [32m++++++++++++++++[m
+ resources/views/pages/patinet-view-blade-old.php   |  7555 [32m++++++++++[m
+ resources/views/pages/sales-report-list.blade.php  |   668 [32m+[m
+ resources/views/pages/sidebar/fab-menu.blade.php   |    13 [32m+[m
+ .../views/pages/sidebar/right-sidebar.blade.php    |   537 [32m+[m
+ resources/views/pages/signaturePad.blade.php       |    82 [32m+[m
+ resources/views/pages/table-basic.blade.php        |   370 [32m+[m
+ resources/views/pages/table-data-table.blade.php   |  4068 [32m+++++[m
+ resources/views/pages/ui-alerts.blade.php          |   338 [32m+[m
+ resources/views/pages/ui-badges.blade.php          |   332 [32m+[m
+ resources/views/pages/ui-basic-buttons.blade.php   |   460 [32m+[m
+ resources/views/pages/ui-breadcrumbs.blade.php     |    94 [32m+[m
+ resources/views/pages/ui-chips.blade.php           |   501 [32m+[m
+ resources/views/pages/ui-collections.blade.php     |   410 [32m+[m
+ .../views/pages/ui-extended-buttons.blade.php      |   242 [32m+[m
+ resources/views/pages/ui-icons.blade.php           |  2321 [32m+++[m
+ resources/views/pages/ui-navbar.blade.php          |   946 [32m++[m
+ resources/views/pages/ui-pagination.blade.php      |    81 [32m+[m
+ resources/views/pages/ui-preloader.blade.php       |   441 [32m+[m
+ .../views/pages/user-forgot-password.blade.php     |    48 [32m+[m
+ resources/views/pages/user-lock-screen.blade.php   |    48 [32m+[m
+ resources/views/pages/user-login.blade.php         |    64 [32m+[m
+ resources/views/pages/user-profile-page.blade.php  |   364 [32m+[m
+ resources/views/pages/user-register.blade.php      |    68 [32m+[m
+ resources/views/panels/breadcrumb.blade.php        |   152 [32m+[m
+ resources/views/panels/footer.blade.php            |    32 [32m+[m
+ resources/views/panels/horizontalNavbar.blade.php  |   328 [32m+[m
+ resources/views/panels/horizontalSubmenu.blade.php |    24 [32m+[m
+ resources/views/panels/navbar.blade.php            |   215 [32m+[m
+ resources/views/panels/scripts.blade.php           |    16 [32m+[m
+ resources/views/panels/sidebar.blade.php           |    72 [32m+[m
+ resources/views/panels/styles.blade.php            |    31 [32m+[m
+ resources/views/panels/submenu.blade.php           |    25 [32m+[m
+ routes/api.php                                     |    19 [32m+[m
+ routes/channels.php                                |    18 [32m+[m
+ routes/console.php                                 |    19 [32m+[m
+ routes/web.php                                     |   274 [32m+[m
+ server.php                                         |    21 [32m+[m
+ webpack.mix.js                                     |    97 [32m+[m
+ 2070 files changed, 471987 insertions(+)
